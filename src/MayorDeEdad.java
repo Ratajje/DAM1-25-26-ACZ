@@ -18,7 +18,9 @@ public class MayorDeEdad {
 
         System.out.println("Hola, " + nombre);
         System.out.println("Eres mayor de edad? " + mayorDeEdad);
-
+        
+        String prueba = "Esto es un cambio";
+        System.out.println(prueba);
 
 
 
