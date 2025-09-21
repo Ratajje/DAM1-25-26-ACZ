@@ -10,6 +10,6 @@ public class RaizCuadrada {
 
         double raiz = Math.sqrt(num);
 
-        System.out.print25("La raiz cuadrada de " + num + " es " + raiz);
+        System.out.print("La raiz cuadrada de " + num + " es " + raiz);
     }
 }
