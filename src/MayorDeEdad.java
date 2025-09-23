@@ -14,6 +14,8 @@ public class MayorDeEdad {
         System.out.println("Escriba su edad: ");
         edad = sc.nextInt();
 
+        sc.close();
+
         boolean mayorDeEdad = edad >= MAYORIA_DE_EDAD;
 
         System.out.println("Hola, " + nombre);
