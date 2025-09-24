@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Locale;
 
 /**
  * @author AmerCz.
@@ -10,14 +11,16 @@ public class DistanciaEntreDosPuntos {
 
         Scanner sc = new Scanner(System.in);
 
+        sc.useLocale(Locale.US);
+
         System.out.print("Escriba el valor x1: ");
         double x1 = sc.nextDouble();
 
         System.out.print("Escriba el valor x2: ");
-        double x2 = sc.nextDouble();
+        double y1 = sc.nextDouble();
 
         System.out.print("Escriba el valor y1: ");
-        double y1 = sc.nextDouble();
+        double x2 = sc.nextDouble();
 
         System.out.print("Escriba el valor y2: ");
         double y2 = sc.nextDouble();

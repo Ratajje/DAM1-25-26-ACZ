@@ -22,17 +22,21 @@ public class EcuacionGrado2 {
         double c = sc.nextDouble();
         sc.close();
 
-        double discriminante = Math.pow(b, 2) - 4 * a * c;
+        double raiz = Math.sqrt(Math.pow(b, 2) - 4 * a * c);
 
-        double raiz1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+        double ec1 = (-b + raiz) / (2 * a);
 
-        double raiz2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+        double ec2 = (-b - raiz) / (2 * a);
 
-        if (discriminante >= 0) {
+        /*if (discriminante >= 0) {
             System.out.println("El resultado de la raiz1 es: " + raiz1);
             System.out.println("El resultado de la raiz2 es: " + raiz2);
         } else {
             System.out.println("El discriminante sale negativo, no hay soluciones reales.");
-        }
+        }*/
+
+        String resultado = Double.isNaN(raiz) ? "No hay soluciones reales" : "Los resultados (ecuación1, ecuación2): " + ec1 + ", " + ec2;
+
+        System.out.println(resultado);
     }
 }
