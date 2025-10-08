@@ -1,4 +1,4 @@
-package EjerciciosVariados;
+package ud1.EjerciciosVariados;
 import java.util.Scanner;
 /**
  * @author AmerCz.

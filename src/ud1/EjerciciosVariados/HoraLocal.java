@@ -1,4 +1,4 @@
-package EjerciciosVariados;
+package ud1.EjerciciosVariados;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;

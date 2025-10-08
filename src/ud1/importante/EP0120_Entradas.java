@@ -1,7 +1,6 @@
-package importante;
+package ud1.importante;
 
 import java.util.Scanner;
-
 /**
  * @author AmerCz.
  */
@@ -39,5 +38,6 @@ public class EP0120_Entradas {
 
         System.out.printf("Importe total sin descuento: %.2f %n", totalNoDescuento);
         System.out.print(mensaje);
+
     }
 }

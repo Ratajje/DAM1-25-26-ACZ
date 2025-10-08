@@ -1,4 +1,4 @@
-package EjerciciosVariados;
+package ud1.EjerciciosVariados;
 import java.nio.channels.Pipe.SourceChannel;
 
 public class App {
