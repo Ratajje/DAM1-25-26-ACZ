@@ -1,4 +1,4 @@
-package ud2;
+package ud2.importante;
 
 import java.util.Scanner;
 
@@ -16,7 +16,7 @@ public class E0207_OdenarMayorAMenor {
         int n3 = sc.nextInt();
         sc.close();
 
-
+        /*
         if (n1 > n2 && n1 > n3 && n2 > n3) {
             System.out.println(n1 + "" + n2 + "" + n3);
 
@@ -34,7 +34,7 @@ public class E0207_OdenarMayorAMenor {
             System.out.println(n3 + "" + n1 + "" + n2);
         }  else {
             System.out.println(n3 + "" + n2 + "" + n1);
-        }
+        }*/
 
         
         if (n1 > n2 && n1 > n3) {

@@ -1,4 +1,4 @@
-package ud2;
+package ud2.ejercicios;
 
 import java.time.LocalTime;
 
