@@ -3,7 +3,11 @@ package ud2.bucles;
 import java.util.Scanner;
 /**
  * @author AmerCz.
+ *
+/*
+ * Crear una aplicación que solicite al usuario una fecha (día, mes, año) y muestre la fecha correspondiente al día siguiente.
  */
+
 public class E0214_PedirFechaSiguiente {
     public static void main(String[] args) {
 
@@ -22,6 +26,7 @@ public class E0214_PedirFechaSiguiente {
         System.out.printf("El día actual es (%02d / %02d / %04d) %n", dia, mes, year);
 
         boolean esBisiesto = (year % 4 == 0 || year % 400 == 0 && !(year % 100 == 0));
+
         dia++;
 
         switch (mes) {
@@ -62,6 +67,5 @@ public class E0214_PedirFechaSiguiente {
                 break;
         }
         System.out.printf("El día +1 es (%02d / %02d / %04d)", dia, mes, year);
-
     }
 }
