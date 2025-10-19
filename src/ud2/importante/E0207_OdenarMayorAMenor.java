@@ -1,7 +1,9 @@
 package ud2.importante;
 
 import java.util.Scanner;
-
+/**
+ * @author AmerCz.
+ */
 public class E0207_OdenarMayorAMenor {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

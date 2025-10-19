@@ -1,7 +1,9 @@
 package ud2.bucles;
 
 import java.util.Scanner;
-
+/**
+ * @author AmerCz.
+ */
 public class E0213_PedirHoraSiguiente {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

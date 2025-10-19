@@ -1,7 +1,9 @@
 package ud2.ejercicios;
 
 import java.util.Scanner;
-
+/**
+ * @author AmerCz.
+ */
 public class E0309_TablaMultiplicar {
     public static void main(String[] args) {
 
