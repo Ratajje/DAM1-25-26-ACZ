@@ -27,45 +27,24 @@ public class E0214_PedirFechaSiguiente {
 
         boolean esBisiesto = (year % 4 == 0 || year % 400 == 0 && !(year % 100 == 0));
 
+        int diaMesActual = 0;
         dia++;
 
         switch (mes) {
-            case 1, 3, 5, 7, 8, 10:
-                if (dia > 31) {
-                    dia = 1;
-                    mes += 1;
-                }
-                break;
-
-            case 4, 6, 9, 11:
-                if (dia > 30) {
-                    dia = 1;
-                    mes += 1;
-                }
-                break;
-
-            case 2:
-                if (esBisiesto) {
-                    if (dia > 29) {
-                        dia = 1;
-                        mes += 1;
-                    }
-                } else {
-                    if (dia > 28) {
-                        dia = 1;
-                        mes += 1;
-                    }
-                }
-                break;
-
-            case 12:
-                if (dia > 30) {
-                    dia = 1;
-                    mes = 1;
-                    year += 1;
-                }
-                break;
+            case 1, 3, 5, 7, 8, 10, 12 -> diaMesActual = 31;
+            case 4, 6, 9, 11 -> diaMesActual = 30;
+            case 2 -> diaMesActual = esBisiesto ? 29 : 28;
         }
+
+        if (dia > diaMesActual) {
+            dia = 1;
+            mes++;
+            if (mes > 12) {
+                mes = 1;
+                year++;
+            }
+        }
+
         System.out.printf("El día +1 es (%02d / %02d / %04d)", dia, mes, year);
     }
 }
