@@ -8,7 +8,7 @@ public class E0312_DecirSiSuspenso {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        final int TOTAL_NOTAS = 5;
+        final int TOTAL_NOTAS = 3;
 
         boolean haySuspenso = false;
 
