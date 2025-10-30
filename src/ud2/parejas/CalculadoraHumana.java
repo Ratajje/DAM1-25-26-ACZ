@@ -2,16 +2,18 @@ package ud2.parejas;
 
 import java.util.Random;
 import java.util.Scanner;
-
 import ud2.Util;
+
 /**
  * @author AmerCz.
  */
 public class CalculadoraHumana {
+    static Scanner sc = new Scanner(System.in);
+    static final int MAX_NUM = 200; // Número mas alto que pueda salir en el juego
+
     /** Inicia el juego y muestra el bucle principal del programa */
     public static void main(String[] args) {
         final int MAX_ACIERTOS = 3; // Número de aciertos para ganar
-        final int MAX_NUM = 200; // Número mas alto que pueda salir en el juego
         int aciertos = 0;
         int operando1;
 
@@ -26,23 +28,31 @@ public class CalculadoraHumana {
             int resultadoUsuario = pedirResultado();
 
             if (resultadoUsuario == resultadoCorrecto) {
-                aciertos ++;
+                aciertos++;
                 System.out.println("CORRECTO! Aciertos: " + aciertos);
                 operando1 = resultadoCorrecto;
             } else {
                 sigueJugando = false;
                 System.out.println("INCORRECTO! El resultado era: " + resultadoCorrecto);
             }
-            
+
         }
 
         if (aciertos >= MAX_ACIERTOS) {
             System.out.println("ENHORABUENA ! Has conseguido " + aciertos + " aciertos");
         } else {
-            System.out.println("Fin del juego, conseguiste " + aciertos + " de " + MAX_ACIERTOS + " aciertos necesarios");
+            System.out
+                    .println("Fin del juego, conseguiste " + aciertos + " de " + MAX_ACIERTOS + " aciertos necesarios");
         }
     }
 
+    /**
+     * Imprime la operación válida generada
+     * Devuelve el resultado que deberá acertar el usuario.
+     * 
+     * @param operando1
+     * @return
+     */
     private static int generarOperacion(int operando1) {
 
         final int MAX_NUM = 200; // Número mas alto que pueda salir en el juego
@@ -50,67 +60,62 @@ public class CalculadoraHumana {
         int operando2 = 0;
         int resultado = 0;
 
-
         do {
             int operador = generarNumAleatorio(4);
             switch (operador) {
                 case 1: // Suma
                     if (operando1 < 150) {
-                        operando2 = generarNumAleatorio(MAX_NUM - operando1);
+                        operando2 = 10 + generarNumAleatorio(MAX_NUM - 10 - operando1);
                         resultado = operando1 + operando2;
                         operadorValido = true;
                         System.out.println(operando1 + " + " + operando2 + " = ?");
                         // Generar operando 2 para Sumar
-
                     }
                     break;
 
                 case 2: // Resta
                     if (operando1 >= 50) {
-                        operando2 = generarNumAleatorio(operando1);
+                        // Como mínimo 5
+                        operando2 = 5 + generarNumAleatorio(operando1 - 10);
                         resultado = operando1 - operando2;
                         operadorValido = true;
                         System.out.println(operando1 + " - " + operando2 + " = ?");
                         // Generar operando 2 para Restar
-
                     }
                     break;
 
                 case 3: // Multiplicación
                     if (operando1 < 20) {
-                        operando2 = generarNumAleatorio(10);
+                        operando2 = generarNumAleatorio(MAX_NUM / operando1);
                         resultado = operando1 * operando2;
                         operadorValido = true;
                         System.out.println(operando1 + " x " + operando2 + " = ?");
                         // Generar operando 2 para Multiplicar
 
                     }
-
                     break;
 
                 case 4: // División
                     if (operando1 > 50 && !Util.esPrimo(operando1)) {
                         do {
-                            operando2 = generarNumAleatorio(10);
+                            // Para que el aleatorio sea de dos para arriba
+                            operando2 = 1 + generarNumAleatorio(operando1 / 2);
                         } while (operando1 % operando2 != 0);
-                        resultado= operando1 / operando2;
+
+                        resultado = operando1 / operando2;
                         operadorValido = true;
                         System.out.println(operando1 + " / " + operando2 + " = ?");
                         // Generar operando 2 para Dividir
-
                     }
                     break;
-
-                default:
-                    break;
-            };
+            }
+            ;
 
         } while (!operadorValido);
         return resultado;
     }
 
     private static int pedirResultado() {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Tu respuesta: ");
         return sc.nextInt();
     }
