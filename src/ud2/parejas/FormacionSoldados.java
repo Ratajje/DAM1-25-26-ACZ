@@ -23,7 +23,6 @@ public class FormacionSoldados {
                 }
                 System.out.println();
             }
-
             numSoldados -= formacionCuadrado;
         }
 

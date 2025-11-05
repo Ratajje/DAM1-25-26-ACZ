@@ -1,5 +1,7 @@
 package ud2;
 
+import java.util.Scanner;
+
 public class Util {
 
     /*
@@ -14,6 +16,34 @@ public class Util {
         }
 
         return esVocal;
+    }
+
+    public static int leerIntRecursiva() {
+        Scanner sc = new Scanner(System.in);
+        try {
+            return sc.nextInt();
+        } catch (Exception e) {
+            String entradaIncorrecta = sc.nextLine();
+            System.out.println("El dato introducido (" + entradaIncorrecta + ") no es un número entero");
+            return leerIntRecursiva();
+        }
+    }
+
+    public static int leerInt() {
+        Scanner sc = new Scanner(System.in);
+        int numeroEntero = 0;
+        boolean numeroValido = false;
+        do {
+            try {
+
+                numeroEntero = sc.nextInt();
+                numeroValido = true;
+            } catch (Exception e) {
+                String entradaIncorrecta = sc.nextLine();
+                System.out.println("El dato introducido (" + entradaIncorrecta + ") no es un número entero");
+            }
+        } while (!numeroValido);
+        return numeroEntero;
     }
 
     /*
@@ -32,6 +62,37 @@ public class Util {
 
         return esPrimo;
     }
+
+    /**
+     * Máximo Común Divisor
+     * @param a
+     * @param b
+     * @return MCD
+     */
+    public static int mcd(int a, int b) {
+        int mcd = 0;
+        // Casos Base
+        if (a == 0) 
+            mcd = b;
+        else if (b == 0)
+            mcd = a;
+        else if (b > a)
+            mcd = mcd(a, b - a);
+        else 
+            mcd = mcd(a - b, b);
+
+        return mcd;
+    }
+
+    // Método Java recursivo para calcular el factorial de un número entero positivo
+    public static long factorial(int n) {
+        if (n == 0) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
+
 
     /*
      * FECHAS Y HORAS
