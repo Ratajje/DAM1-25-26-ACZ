@@ -49,6 +49,18 @@ public class Util {
     /*
      * NÚMEROS: PRIMOS Y OTROS
      */
+
+    public static int LongNum(long num) {
+        int cont = 0;
+        long numero = num;
+        while (!(numero % 10 == 0)) {
+            cont++;
+            numero = numero / 10;
+            System.out.println(cont);
+        }
+        return cont;
+    }
+
     public static boolean esPrimo(int n) {
         if (n <= 1)
             return false;
@@ -65,6 +77,7 @@ public class Util {
 
     /**
      * Máximo Común Divisor
+     * 
      * @param a
      * @param b
      * @return MCD
@@ -72,13 +85,13 @@ public class Util {
     public static int mcd(int a, int b) {
         int mcd = 0;
         // Casos Base
-        if (a == 0) 
+        if (a == 0)
             mcd = b;
         else if (b == 0)
             mcd = a;
         else if (b > a)
             mcd = mcd(a, b - a);
-        else 
+        else
             mcd = mcd(a - b, b);
 
         return mcd;
@@ -92,7 +105,6 @@ public class Util {
             return n * factorial(n - 1);
         }
     }
-
 
     /*
      * FECHAS Y HORAS
