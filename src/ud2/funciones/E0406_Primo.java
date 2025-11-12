@@ -4,7 +4,7 @@ package ud2.funciones;
  */
 public class E0406_Primo {
     public static void main(String[] args) {
-        System.out.println(esPrimo(12));
+        System.out.println(esPrimo(14));
     }
 
     static boolean esPrimo(int n) {

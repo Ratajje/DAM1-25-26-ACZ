@@ -9,7 +9,7 @@ import ud2.Util;
 public class CapicuaV2 {
     public static void main(String[] args) {
 
-        System.out.println(esCapicuaR(12321));
+        System.out.println(esCapicua(12321));
         System.out.println(esCapicua(12345)); //True
         System.out.println(esCapicua(12345678987654321L)); //True
         System.out.println(esCapicua(1234567876543211L)); //True

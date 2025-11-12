@@ -48,7 +48,7 @@ public class Dado {
 
     private static int caraAleatoria(int cara) {
         Random random = new Random();
-        int caraAleatoria = random.nextInt(6) + 1;
+        int caraAleatoria = random.nextInt(cara) + 1;
         return caraAleatoria;
     }
 }

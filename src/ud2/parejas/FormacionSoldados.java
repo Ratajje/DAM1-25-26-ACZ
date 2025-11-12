@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class FormacionSoldados {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
+        
         System.out.print("Ingrese el número de soldados: ");
         int numSoldados = sc.nextInt();
 

@@ -16,7 +16,7 @@ public class Bombillas {
         String resultado;
 
         if (duracion > 10 || horas <= 0 || encendidos <= 0 || duracion <= 0) {
-            return "HORAS";
+            return "ERROR";
         }
 
         if (encendidos * duracion < horas) {

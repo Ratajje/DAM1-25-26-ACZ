@@ -21,7 +21,7 @@ public class Capicua {
             int uMillar;
             esCapicua = unidades == centenas;
 
-        } else if (n < 1000 && n > 999) {
+        } else if (n >= 1000 && n <= 9999) {
             // Para 4 cifras
             int unidades = n % 10;
             int decenas = n / 10 % 10;
