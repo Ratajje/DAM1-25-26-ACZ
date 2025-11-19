@@ -102,7 +102,7 @@ public class ParaRepasarEstudiar {
                 return false;
             }
         }
-        return true;
+        return true;    
     }
 
     /**
@@ -138,9 +138,9 @@ public class ParaRepasarEstudiar {
 
         int contadorPrimos = 0;
         
-        for (int numeroActual = 2; contadorPrimos < n; numeroActual++) {
-            if (esPrimo(numeroActual)) {
-                System.out.print(numeroActual + " ");
+        for (int i = 2; contadorPrimos < n; i++) {
+            if (esPrimo(i)) {
+                System.out.print(i + " ");
                 contadorPrimos++; 
             }
         }
@@ -179,7 +179,7 @@ public class ParaRepasarEstudiar {
         int num = Math.abs(numero); // Para que funcione con negativos
 
         while (num > 0) {
-            suma = suma + (num % 10); // Suma el último dígito
+            suma += (num % 10); // Suma el último dígito
             num = num / 10;           // Quita el último dígito
         }
         return suma;
