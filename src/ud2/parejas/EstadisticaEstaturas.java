@@ -5,44 +5,64 @@ import java.util.Scanner;
 public class EstadisticaEstaturas {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("=====ESTATURAS=====");
 
-        System.out.println("ESTADISTICAS DE ESTATURAS:");
-        System.out.println("==========================");
-        System.out.print("Introduce una estatura (cm) (0 o negativo para terminar): ");
-        double estatura = sc.nextDouble();
+        double estatura = -1;
 
-        double estaturaActual = estatura;
-        double numeroTotalAlumnos = 0;
-        double mediaTotalAlumnos = 0;
-        double alturaMasAlta = 0;
-        double alturaMasBaja = 0;
+        boolean entradaValida = false;
+
+        System.out.print("Introduce una estatura: ");
+
+        while (!entradaValida) {
+            try {
+                estatura = sc.nextDouble();
+
+                if (estatura < 0) {
+                    System.out.println("Entrada invalida");
+                    System.out.print("Introduce una estatura : ");
+                } else {
+                    entradaValida = true;
+                }
+
+            } catch (Exception e) {
+                System.out.println("Entrada invalida");
+                System.out.print("Introduce una estatura: ");
+                sc.nextLine();
+            }
+        }
+
+        int contadorAlumnos = 0;
+        double estaturaActual = 0;
+        double alturaAlta = 0;
+        double alturaBaja = 0;
+        double suma = 0;
 
         while (estatura > 0) {
-            numeroTotalAlumnos++;
 
-            if (estaturaActual >= estatura) {
-                alturaMasAlta = estaturaActual;
-            } else {
-                alturaMasAlta = estatura;
+            if (contadorAlumnos == 0) {
+                alturaAlta = estatura;
+                alturaBaja = estatura;
             }
 
-            if (estaturaActual <= estatura) {
-                alturaMasBaja = estaturaActual;
-            } else {
-                alturaMasBaja = estatura;
+            suma += estatura;
+            contadorAlumnos++;
+
+            if (estatura > alturaAlta) {
+                alturaAlta = estatura;
             }
 
-            estaturaActual = estatura;
+            if (estatura < alturaBaja) {
+                alturaBaja = estatura;
+            }
 
-            System.out.print("Introduce una estatura (cm) (0 o negativo para terminar): ");
+            System.out.print("Introdice estatura (cm): ");
             estatura = sc.nextDouble();
 
         }
 
-        System.out.println("Numero total de alumnos: " + numeroTotalAlumnos);
-       // System.out.printf("Media de estatura: %.2f %n");
-        System.out.printf("Altura mas alta: %.2f %n", alturaMasAlta);
-        System.out.printf("Altura mas baja: %.2f %n", alturaMasBaja);
-
+        System.out.println("Numero total de alumnos: " + contadorAlumnos);
+        System.out.printf("Meda de estatura (m): %.2f %n", (suma / contadorAlumnos) / 100);
+        System.out.printf("Altura más alta: %.2f %n", alturaAlta / 100);
+        System.out.printf("Altura más baja: %.2f %n", alturaBaja / 100);
     }
 }
