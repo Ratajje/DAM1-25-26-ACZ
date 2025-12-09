@@ -19,7 +19,7 @@ public class BuscarDesde {
         }
 
         System.out.println(Arrays.toString(t));
-        System.out.println(buscar(t, clave, posicion));
+        System.out.println("Indice: " + buscar(t, clave, posicion));
     }
 
     static int buscar(int t[], int clave, int posicion) {
