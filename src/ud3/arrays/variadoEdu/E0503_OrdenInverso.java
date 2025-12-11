@@ -1,4 +1,4 @@
-package ud3.arrays;
+package ud3.arrays.variadoEdu;
 
 import static org.junit.Assert.assertArrayEquals;
 

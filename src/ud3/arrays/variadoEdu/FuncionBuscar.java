@@ -1,4 +1,4 @@
-package ud3.arrays;
+package ud3.arrays.variadoEdu;
 
 public class FuncionBuscar {
     public static void main(String[] args) {
