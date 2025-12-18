@@ -16,18 +16,17 @@ public class Ajedrez {
 
         System.out.println(turnoBlancas ? "Turno de BLANCAS" : "Turno de NEGRAS");
 
-        int[] movimiento = leerMovimiento();
+        int[] mov = leerMovimiento();
 
         while (!fin) {
             // validarMovimiento
-
-            // ejecutarMovimiento
-            mover(tablero, movimiento);
-
+            mover(tablero, mov);
+            turnoBlancas = !turnoBlancas;
+            
             // comprobarJaqueOJaqueMate
             mostrarTableroConLeyenda(tablero);
-
-            movimiento = leerMovimiento();
+            System.out.println(turnoBlancas ? "Turno de BLANCAS" : "Turno de NEGRAS");
+            mov = leerMovimiento();
         }
 
         // Mensaje final: ganador/a o tablas
@@ -46,39 +45,47 @@ public class Ajedrez {
     public static int[] leerMovimiento() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Movimiento? Ejemplo \"e2 e4\": ");
-        String entrada = sc.nextLine();
-        if (entrada.equalsIgnoreCase("fin")) {
-            return null;
-        }
+        Boolean entradaValida = false;
+        int[] movimiento = null;
 
-        try {
-            char columnaOrigen = entrada.charAt(0); // columnaOrigen e
-            char filaOrigen = entrada.charAt(1); // filaOrigen 2
-            char columnaDestino = entrada.charAt(3); // columnaDestino e
-            char filaDestino = entrada.charAt(4); // filaDestino 4
+        do {
+            System.out.print("Movimiento? Ejemplo \"e2 e4\"  o  \"fin\" para rendirte: ");
+            String entrada = sc.nextLine();
 
-            int[] movimiento = {
-                    7 - (filaOrigen - '1'),
-                    columnaOrigen - 'a',
-                    7 - (filaDestino - '1'),
-                    columnaDestino - 'a'
-            };
+            if (entrada.equalsIgnoreCase("fin"))
+                return null;
 
-            if (columnaOrigen >= 0 && columnaOrigen < 8
-                && filaOrigen >= 0 && filaOrigen < 8
-                && columnaDestino >=0 && columnaDestino <8
-                && filaDestino >= 0 && columnaDestino < 8
-            );
+            try {
+                char columnaOrigen = entrada.charAt(0); // columnaOrigen e
+                char filaOrigen = entrada.charAt(1); // filaOrigen 2
+                char columnaDestino = entrada.charAt(3); // columnaDestino e
+                char filaDestino = entrada.charAt(4); // filaDestino 4
 
-            
+                int cOrigen = columnaOrigen - 'a';
+                int fOrigen = 7 - (filaOrigen - '1');
+                int cDestino = columnaDestino - 'a';
+                int fDestino = 7 - (filaDestino - '1');
 
-            
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
+                if (cOrigen >= 0 && cOrigen < 8
+                        && fOrigen >= 0 && fOrigen < 8
+                        && cDestino >= 0 && cDestino < 8
+                        && fDestino >= 0 && fDestino < 8
+                )
 
+                movimiento = new int[4];
 
+                movimiento[0] = fOrigen;
+                movimiento[1] = cOrigen;
+                movimiento[2] = fDestino;
+                movimiento[3] = cDestino;
+
+                entradaValida = true;
+
+            } catch (Exception e) {
+                System.out.println("Entrada inválida");
+            }
+
+        } while (!entradaValida);
 
         return movimiento;
 
@@ -89,19 +96,6 @@ public class Ajedrez {
          * System.out.println(columnaDestino - 'a'); //4
          * System.out.println(7 - (filaDestino - '1')); //4
          */
-    }
-
-    public static void validarMovimiento(String entrada) {
-
-        boolean valido = false;
-
-        if (entrada.charAt(0) > 'h' && entrada.charAt(0) < 'a'
-                && entrada.charAt(1) > 8 && entrada.charAt(1) < 1
-                && entrada.charAt(3) > 'h' && entrada.charAt(3) < 'a'
-                && entrada.charAt(4) > 8 && entrada.charAt(4) < 1) {
-            valido = true;
-        }
-
     }
 
     static char[][] inicializarTablero() {
