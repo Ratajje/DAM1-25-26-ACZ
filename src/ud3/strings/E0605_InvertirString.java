@@ -9,7 +9,7 @@ package ud3.strings;
 
 public class E0605_InvertirString {
     public static void main(String[] args) {
-        String cad = "Hola mundo";
+        String cad = "Mi perro Perico";
 
         System.out.println(invertirCadena(cad));
     }
@@ -22,7 +22,15 @@ public class E0605_InvertirString {
             array[i] = cad.charAt(cad.length() - 1 - i);
         }
 
-        return String.valueOf(array);
+        //return String.valueOf(array);
+
+        String cadenaInvertida = "";
+
+        for (int i = cad.length() - 1; i >= 0; i--) {
+            cadenaInvertida += cad.charAt(i);
+        }
+
+        return cadenaInvertida;
     }
 
 }
