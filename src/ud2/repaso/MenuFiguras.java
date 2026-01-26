@@ -80,6 +80,7 @@ public class MenuFiguras {
                 aciertos--;
                 sc.nextLine();
                 System.out.println("Te quedan " + aciertos + " aciertos.");
+                opcion = -1;
             }
 
         } while (aciertos > 0 && (opcion < min || opcion > max));

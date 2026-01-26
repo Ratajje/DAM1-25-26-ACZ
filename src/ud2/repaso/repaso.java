@@ -13,9 +13,9 @@ public class repaso {
             return n * factorial(n - 1);
         }
     }
-        public static long factorialIterativo(int n) {
-        long factorial = 1;
 
+    public static long factorialIterativo(int n) {
+        long factorial = 1;
 
         if (n == 0) {
             factorial = 1;

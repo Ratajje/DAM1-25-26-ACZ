@@ -1,4 +1,4 @@
-package ud3.strings;
+package ud3.strings.stringsGeneral;
 
 public class E0601_MostrarTodosCaracteres {
     public static void main(String[] args) {

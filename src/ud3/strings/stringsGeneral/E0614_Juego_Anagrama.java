@@ -1,4 +1,4 @@
-package ud3.strings;
+package ud3.strings.stringsGeneral;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 

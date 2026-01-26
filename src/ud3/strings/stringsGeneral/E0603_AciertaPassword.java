@@ -1,4 +1,4 @@
-package ud3.strings;
+package ud3.strings.stringsGeneral;
 
 import java.util.Scanner;
 

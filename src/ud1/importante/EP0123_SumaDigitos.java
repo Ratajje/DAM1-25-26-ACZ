@@ -23,5 +23,19 @@ public class EP0123_SumaDigitos {
 
         System.out.printf("La suma de las 3 cifras '%d' es de : %d", cifras, suma);
 
+
+        int divisor = 10;
+        int sumaT = 0;
+        int trozo = cifras;
+
+        while (cifras / divisor != 0) {
+            sumaT += trozo % divisor;
+            trozo = cifras / divisor;
+            divisor = divisor * 10;
+        }
+
+        System.out.printf("La suma de las 3 cifras '%d' es de : %d", cifras, sumaT);
+
+
     }
 }

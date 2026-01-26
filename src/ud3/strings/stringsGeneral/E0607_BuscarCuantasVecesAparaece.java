@@ -1,4 +1,4 @@
-package ud3.strings;
+package ud3.strings.stringsGeneral;
 
 /**
  * Diseñar un programa que solicite al usuario una frase y una palabra. A

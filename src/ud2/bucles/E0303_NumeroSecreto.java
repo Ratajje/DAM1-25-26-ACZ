@@ -1,5 +1,6 @@
 package ud2.bucles;
 
+import java.time.LocalDate;
 import java.util.Random;
 import java.util.Scanner;
 /**
@@ -10,7 +11,9 @@ public class E0303_NumeroSecreto {
         Random random = new Random();
         Scanner sc = new Scanner(System.in);
 
-        int numeroAleatorio = random.nextInt(10) + 1;
+        LocalDate dia = LocalDate.now();
+
+        int numeroAleatorio = random.nextInt(-10, 10);
 
         System.out.println("DATO: Introduce -1 para rendirte");
         System.out.print("Introduzca un número: ");

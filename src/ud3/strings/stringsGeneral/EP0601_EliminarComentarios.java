@@ -1,4 +1,4 @@
-package ud3.strings;
+package ud3.strings.stringsGeneral;
 
 /**
  * El compilador del lenguaje Java elimina los comentarios (/\*...*\/) del

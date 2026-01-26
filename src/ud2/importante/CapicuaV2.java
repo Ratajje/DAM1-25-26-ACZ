@@ -22,7 +22,7 @@ public class CapicuaV2 {
     
     public static long invertirNumero (long n) {
         long numInvert = 0;
-        while (n % 10 !=0) {
+        while (n % 10 != 0) {
             numInvert = numInvert * 10 + n % 10;
             n = n / 10;
         }

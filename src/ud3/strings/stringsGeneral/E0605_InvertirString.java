@@ -1,4 +1,4 @@
-package ud3.strings;
+package ud3.strings.stringsGeneral;
 
 /**
  * Diseña una función a la que se le pase una cadena de caracteres y la devuelva

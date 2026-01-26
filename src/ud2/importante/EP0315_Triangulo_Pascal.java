@@ -9,9 +9,9 @@ public class EP0315_Triangulo_Pascal {
 
     public static void trianguloPascal(int num) {
 
-        for (int n = 0; n <= num; n++) {
-            for (int m = 0; m <= n; m++) {
-                long e = Util.factorial(n) / (Util.factorial(m) * Util.factorial(n - m));
+        for (int i = 0; i <= num; i++) {
+            for (int j = 0; j <= i; j++) {
+                long e = Util.factorial(i) / (Util.factorial(j) * Util.factorial(i - j));
                 System.out.print(e + " ");
             }
             System.out.println();
