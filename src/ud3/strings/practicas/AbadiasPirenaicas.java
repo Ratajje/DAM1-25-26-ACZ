@@ -7,7 +7,6 @@ public class AbadiasPirenaicas {
 
     static Scanner sc = new Scanner(System.in);
 
-
     public static void main(String[] args) {
 
         int alturas[] = new int[0];
@@ -53,18 +52,23 @@ public class AbadiasPirenaicas {
             System.out.print(indicesAbadias[j] + " ");
         }
 
+        // System.out.println("Posiciones Cimas con Abadías: " +
+        // Arrays.toString(getMontanasAbadias(alturas)));
 
-        //System.out.println("Posiciones Cimas con Abadías: " + Arrays.toString(getMontanasAbadias(alturas)));
-
-        /*int caso1[] = { 3000, 3500, 3200, 3400, 3200 };
-
-        int caso2[] = { 4000, 3500, 3500, 3200 };
-
-        int caso3[] = { 3500, 3400, 3200, 3000, 3100 };
-
-        System.out.println("Posiciones Cimas con Abadías: " + Arrays.toString(getMontanasAbadias(caso1)));
-        System.out.println("Posiciones Cimas con Abadías: " + Arrays.toString(getMontanasAbadias(caso2)));
-        System.out.println("Posiciones Cimas con Abadías: " + Arrays.toString(getMontanasAbadias(caso3)));*/
+        /*
+         * int caso1[] = { 3000, 3500, 3200, 3400, 3200 };
+         * 
+         * int caso2[] = { 4000, 3500, 3500, 3200 };
+         * 
+         * int caso3[] = { 3500, 3400, 3200, 3000, 3100 };
+         * 
+         * System.out.println("Posiciones Cimas con Abadías: " +
+         * Arrays.toString(getMontanasAbadias(caso1)));
+         * System.out.println("Posiciones Cimas con Abadías: " +
+         * Arrays.toString(getMontanasAbadias(caso2)));
+         * System.out.println("Posiciones Cimas con Abadías: " +
+         * Arrays.toString(getMontanasAbadias(caso3)));
+         */
     }
 
     public static int[] getMontanasAbadias(int[] MontanasCordillera) {
@@ -72,10 +76,21 @@ public class AbadiasPirenaicas {
         int cimas[] = new int[0];
 
         for (int i = 0; i < MontanasCordillera.length - 1; i++) {
-            if (MontanasCordillera[i] > MontanasCordillera[i + 1]) {
+
+            boolean noEsTapada = true;
+
+            for (int j = i + 1; j < MontanasCordillera.length && noEsTapada; j++) {
+
+                if (MontanasCordillera[i] <= MontanasCordillera[j]) {
+                    noEsTapada = false;
+                }
+            }
+
+            if (noEsTapada) {
                 cimas = Arrays.copyOf(cimas, cimas.length + 1);
                 cimas[cimas.length - 1] = i;
             }
+
         }
 
         cimas = Arrays.copyOf(cimas, cimas.length + 1);
