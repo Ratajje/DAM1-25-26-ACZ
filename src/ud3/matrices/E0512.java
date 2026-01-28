@@ -1,5 +1,7 @@
 package ud3.matrices;
 
+import java.util.Arrays;
+
 public class E0512 {
     public static void main(String[] args) {
         int matriz[][] = new int[5][5];
@@ -9,6 +11,8 @@ public class E0512 {
                 matriz[i][j] = 10 * i + j;
             }
         }
+
+        System.out.println(Arrays.deepToString(matriz));
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {

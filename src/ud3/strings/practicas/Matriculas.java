@@ -1,11 +1,5 @@
 package ud3.strings.practicas;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.Test;
-
 public class Matriculas {
     public static void main(String[] args) {
         System.out.println(esMatriculaValida("1234B5B"));

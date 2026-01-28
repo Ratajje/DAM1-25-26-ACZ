@@ -47,7 +47,6 @@ public class AbadiasPirenaicas {
         int indicesAbadias[] = getMontanasAbadias(alturas);
 
         System.out.printf("Se pueden construir %d abadías en las cordilleras: ", indicesAbadias.length);
-
         for (int j = 0; j < indicesAbadias.length; j++) {
             System.out.print(indicesAbadias[j] + " ");
         }
@@ -84,6 +83,7 @@ public class AbadiasPirenaicas {
                 if (MontanasCordillera[i] <= MontanasCordillera[j]) {
                     noEsTapada = false;
                 }
+                
             }
 
             if (noEsTapada) {
@@ -117,7 +117,7 @@ public class AbadiasPirenaicas {
             } catch (Exception e) {
                 System.out.println("ERROR: Debe introducir únicamente dígitos");
                 sc.nextLine();
-                entrada = -2; // Forzar a repetir
+                entrada = -2;
                 System.out.print("Introduce la altura correcta: ");
 
             }

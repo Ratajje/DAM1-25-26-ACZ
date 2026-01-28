@@ -43,15 +43,15 @@ public class MatriculasProfe {
         return true;
     }
 
+    boolean esMatriculaValida2(String matricula) {
+
+        return matricula != null && matricula.toUpperCase().matches("[0-9]{4}[BCDFGHJKLMNPRSTVWXYZ]{3}");
+
+    }
+
     public static String siguienteMatricula(String matricula) {
 
         char matriculaAuxiliar[] = matricula.toCharArray();
-
-        
-
-        
-
-        
 
         return "";
     }
@@ -66,10 +66,8 @@ public class MatriculasProfe {
             auxiliar2 += m2.charAt(i - 1);
         }
 
-
         return auxiliar1.compareToIgnoreCase(auxiliar2);
     }
-
 
     @Test
     void esMatriculaValidaTest() {
