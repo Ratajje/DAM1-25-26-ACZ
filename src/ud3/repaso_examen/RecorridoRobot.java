@@ -1,4 +1,4 @@
-package ud3.EXAMEN;
+package ud3.repaso_examen;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;

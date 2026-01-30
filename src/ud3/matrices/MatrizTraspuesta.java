@@ -37,7 +37,7 @@ public class MatrizTraspuesta {
         for (int i = 0; i < matrizTraspuesta.length; i++) {
 
             for (int j = 0; j < matrizTraspuesta[i].length; j++) {
-                matrizTraspuesta[i][j] = matriz[j][0 + i];
+                matrizTraspuesta[i][j] = matriz[j][i];
             }
 
         }

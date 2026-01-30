@@ -33,7 +33,7 @@ public class rango {
 
     public static int rango(int t[]) {
 
-        if (t == null || t.length <= 2) {
+        if (t == null || t.length < 2) {
             return 0;
         }
 
@@ -51,8 +51,8 @@ public class rango {
             }
         }
 
-        int diferencia = minimo - maximo;
+        int diferencia = maximo - minimo;
 
-        return Math.abs(diferencia);
+        return diferencia;
     }
 }
