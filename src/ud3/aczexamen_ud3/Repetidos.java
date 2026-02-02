@@ -54,7 +54,6 @@ public class Repetidos {
                     repetidos = Arrays.copyOf(repetidos, repetidos.length + 1);
                     repetidos[auxiliar] = t[i];
                     auxiliar++;
-
                 }
             }
 
