@@ -10,7 +10,16 @@ public class Alumno {
     LocalDate fechaNacimiento;
     double notaProgramacion;
     double notaContornos;
-    
+    static String centroEducativo = "IES Chan do Monte";
+
+    public static void setCentroEducativo(String nuevoCentro) {
+        if (nuevoCentro != null && !nuevoCentro.isEmpty())
+            centroEducativo = nuevoCentro;
+    }
+
+    public static String getCentroEducativo() {
+        return centroEducativo;
+    }
 
     public void mostrar() {
         System.out.println("Ficha de Alumno/a");
@@ -21,30 +30,59 @@ public class Alumno {
         System.out.println("Nombre de usuari@: " + getUsername());
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         System.out.println("Fecha de Nacimiento: " + fechaNacimiento.format(formato));
-        System.out.println("Nota Programación: " + notaProgramacion );
+        System.out.println("Nota Programación: " + notaProgramacion);
         System.out.println("Nota Contornos: " + notaContornos);
         System.out.println("Nota media: " + ((notaProgramacion + notaContornos) / 2));
+        System.out.println("NOMBRE COMPLETO: " + getNombreCompleto());
+        System.out.println("INICIALES EN MAYUSUCLA: " + getIniciales());
+        System.out.println("INICIALES EN MAYUSUCLA 2: " + getIniciales2());
+
     }
 
     public String getUsername() {
         // Genera el nombre de usuario
+        String username = "";
+        username += nombre.charAt(0);
 
-        String username;
-
-        String name = this.nombre.substring(0, 1);
-
-        if (this.apellido1.length() < 3) {
-            String apellido1 =  this.apellido1;
-        } else if (this.apellido1.length() > 3) {
-             String apellido1 =  this.apellido1.substring(0, 2);
+        int i = 0;
+        while (i < apellido1.length() && i < 4 && apellido1.charAt(i) != ' ') {
+            username += apellido1.charAt(i);
+            i++;
         }
-        
 
-        String apellido2 =  this.apellido2.substring(0, 3);
+        i = 0;
+        while (i < apellido2.length() && i < 4 && apellido2.charAt(i) != ' ') {
+            username += apellido2.charAt(i);
+            i++;
+        }
 
-        username = name + apellido1 + apellido2;
+        username = username.toLowerCase();
 
-        return username.toLowerCase();
+        username = username.replace('á', 'a');
+        username = username.replace('é', 'e');
+        username = username.replace('í', 'i');
+        username = username.replace('ó', 'o');
+        username = username.replace('ú', 'u');
+        username = username.replace('ü', 'u');
+        username = username.replace('ñ', 'n');
+
+        return username;
     }
+
+    String getNombreCompleto() {
+        return this.apellido1 + " " + this.apellido2 + " " + this.nombre;
+    }
+
+    String getIniciales() {
+        String iniciales = "" + this.nombre.toUpperCase().charAt(0) + this.apellido1.toUpperCase().charAt(0) + this.apellido2.toUpperCase().charAt(0);
+        return iniciales;
+    }
+
+    String getIniciales2() {
+    String iniciales = this.nombre.toUpperCase().substring(0, 1) 
+                     + this.apellido1.toUpperCase().substring(0, 1) 
+                     + this.apellido2.toUpperCase().substring(0, 1);
+    return iniciales;
+}
 
 }
