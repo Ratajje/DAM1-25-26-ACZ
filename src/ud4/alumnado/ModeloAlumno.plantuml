@@ -1,0 +1,19 @@
+@startuml ModeloAlumno
+
+class Alumno {
+    String nombre
+    String apellido1
+    String apellido2
+    LocalDate fechaNacimiento
+    double notaProgramacion
+    double notaContornos
+    {static} String centroEducativo
+
+    mostrar()
+    getIniciales()
+    String getUsername()
+    {static} String getCentroEducativo()
+    {static} setcentroEducativo()
+}
+
+@enduml

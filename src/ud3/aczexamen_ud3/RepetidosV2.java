@@ -15,8 +15,14 @@ public class RepetidosV2 {
 
     public static int[] repetidos(int t[]) {
 
+        
+        if (t == null) {
+            return null;
+        }
+
         int repetidos[] = new int[0];
         int yaVistos[] = new int[0];
+
 
         for (int i = 0; i < t.length; i++) {
 

@@ -33,10 +33,9 @@ public class Alumno {
         System.out.println("Nota Programación: " + notaProgramacion);
         System.out.println("Nota Contornos: " + notaContornos);
         System.out.println("Nota media: " + ((notaProgramacion + notaContornos) / 2));
-        System.out.println("NOMBRE COMPLETO: " + getNombreCompleto());
-        System.out.println("INICIALES EN MAYUSUCLA: " + getIniciales());
+        //System.out.println("NOMBRE COMPLETO: " + getNombreCompleto());
+        //System.out.println("INICIALES EN MAYUSUCLA: " + getIniciales());
         System.out.println("INICIALES EN MAYUSUCLA 2: " + getIniciales2());
-
     }
 
     public String getUsername() {
@@ -69,20 +68,21 @@ public class Alumno {
         return username;
     }
 
-    String getNombreCompleto() {
-        return this.apellido1 + " " + this.apellido2 + " " + this.nombre;
-    }
-
-    String getIniciales() {
-        String iniciales = "" + this.nombre.toUpperCase().charAt(0) + this.apellido1.toUpperCase().charAt(0) + this.apellido2.toUpperCase().charAt(0);
-        return iniciales;
+    void getNombreCompleto() {
+        System.out.println(this.apellido1 + " " + this.apellido2 + " " + this.nombre);
     }
 
     String getIniciales2() {
-    String iniciales = this.nombre.toUpperCase().substring(0, 1) 
-                     + this.apellido1.toUpperCase().substring(0, 1) 
-                     + this.apellido2.toUpperCase().substring(0, 1);
-    return iniciales;
-}
+        String iniciales = "" + this.nombre.toUpperCase().charAt(0) + this.apellido1.toUpperCase().charAt(0)
+                + this.apellido2.toUpperCase().charAt(0);
+        return iniciales;
+    }
+
+    void getIniciales() {
+        String iniciales = this.nombre.toUpperCase().substring(0, 1)
+                + this.apellido1.toUpperCase().substring(0, 1)
+                + this.apellido2.toUpperCase().substring(0, 1);
+        System.out.println(iniciales);
+    }
 
 }

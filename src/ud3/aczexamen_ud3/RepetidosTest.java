@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class RepetidosTest {
     @Test
     void testRepetidos() {
-        int[] t = {1, 3, 5, 3, 7, 4, 2, 8, 2, 4, 6, 4, 2, 6};
+        int[] t = {1, 3, 5, 3, 7, 4, 2, 8, 2, 4, 6, 4, 2, 6, 2};
         int[] resultado = {6, 4, 3, 2};
         assertArrayEquals(resultado, RepetidosV2.repetidos(t));
     }

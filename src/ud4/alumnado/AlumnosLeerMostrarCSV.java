@@ -30,7 +30,9 @@ public class AlumnosLeerMostrarCSV {
         System.out.println("==================================\n");
         for (Alumno alumno : alumnos) {
             //AlumnoLeerMostrar.mostrarAlumno(alumno);
-            alumno.mostrar();
+            //alumno.mostrar();
+            alumno.getIniciales();
+            alumno.getNombreCompleto();
             System.out.println();
         }
 

@@ -1,56 +1,37 @@
 package ud4.clases;
 
-
 public class CuentaCorriente {
-    // Atributos
     String dni;
     String nombreTitular;
     double saldo;
 
-
-    // Métodos
-    CuentaCorriente (String dni, String nombreTitular){
+    // Constructores
+    CuentaCorriente(String dni, String nombre) {
         this.dni = dni;
-        this.nombreTitular = nombreTitular;
-        this.saldo = 0;
+        this.nombreTitular = nombre;
+        saldo = 0;
     }
 
-    boolean sacarDinero(double cantidad) {
-        if (saldo >= cantidad) {
-            saldo -= cantidad;
-            System.out.println("Retirada exitosa, Nuevo saldo: " + saldo);
+    public boolean sacarDinero(double importe) {
+        if (importe <= this.saldo) {
+            // saco dinero
+            saldo -= importe;
             return true;
         } else {
-            System.out.println("No hay saldo suficiente");
+            // No hay saldo
             return false;
         }
     }
 
-    void ingresarDinero (double aIngresar) {
-        saldo += aIngresar;
-        System.out.println("Ingreso exitoso, Nuevo saldo: " + saldo);
+    public void ingresarDinero(double importe) {
+        saldo += importe;
     }
 
-    void mostrarCuenta () {
-        System.out.println("--- CUENTA CORRIENTE ---");
-        System.out.println("DNI: " + this.dni);
-        System.out.println("Nombre Titular: " + this.nombreTitular);
-        System.out.println("Saldo: " + this.saldo);
-        System.out.println("------------------------");
+    public void mostrar() {
+        System.out.println("CUENTA CORRIENTE");
+        System.out.println("================");
+        System.out.println("Titular: " + nombreTitular + " (" + dni + ")");
+        System.out.println("Saldo = " + saldo + " euros)");
     }
 
-
-    public static void main(String[] args) {
-        CuentaCorriente laCuenta = new CuentaCorriente("12345G", "Pepe");
-        
-        laCuenta.ingresarDinero(525);
-
-        laCuenta.sacarDinero(300);
-
-        laCuenta.sacarDinero(2000);
-
-        laCuenta.mostrarCuenta();
-
-        
-    }
 }

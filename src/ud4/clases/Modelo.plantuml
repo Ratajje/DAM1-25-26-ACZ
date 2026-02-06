@@ -1,0 +1,12 @@
+@startuml Modelo
+
+class Persona {
+    - String nombre
+    - double estatura
+    - byte edad
+    + saludar()
+    + cumpliraños()
+    + crecer(double cm)
+}
+
+@enduml
