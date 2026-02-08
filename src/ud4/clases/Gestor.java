@@ -6,21 +6,14 @@ public class Gestor {
     double importeMax;
 
     public void mostrar() {
-        System.out.println("-- GESTOR --");
-        System.out.println("------------");
-        System.out.println("Nombre del gestor: " + this.nombre);
-        System.out.println("Telefono del gestor: " + this.TELEFONO);
-        System.out.println("Importe MAX: " + this.importeMax);
+        System.out.println("GESTOR/A: " + this.nombre + " (" + this.TELEFONO + ")");
+        System.out.println();
     }
 
     public Gestor (String nombre, String telefono) {
         this.nombre = nombre;
         this.TELEFONO = telefono;
         this.importeMax = 10000;
-
-        if (nombre.equals("") || telefono.equals("")) {
-            throw new IllegalArgumentException("NULL");
-        }
     }
      
 }
