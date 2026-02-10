@@ -1,6 +1,5 @@
 package ud4.clases;
 
-import devNull.CuentaCorrienteMio;
 
 public class CuentaCorriente {
     private String dni;
@@ -55,21 +54,21 @@ public class CuentaCorriente {
         System.out.println();
     }
 
-    public static boolean transferencia(CuentaCorriente c1, CuentaCorriente c2, double cantidad) {
-        if (c1.saldo < cantidad) {
+    public static boolean transferencia(CuentaCorriente ccOrigen, CuentaCorriente ccDestino, double cantidad) {
+        if (ccOrigen.saldo < cantidad) {
             return false;    
         } else {
-            c2.saldo += cantidad;
-            c1.saldo -= cantidad;
+            ccDestino.saldo += cantidad;
+            ccOrigen.saldo -= cantidad;
             return true;
         }
     }
 
-    public boolean transferir(CuentaCorriente cx, double cantidad) {
+    public boolean transferir(CuentaCorriente ccDestino, double cantidad) {
         if (this.saldo < cantidad) {
             return false;
         } else {
-            cx.saldo += cantidad;
+            ccDestino.saldo += cantidad;
             this.saldo -= cantidad;
             return true;
         }

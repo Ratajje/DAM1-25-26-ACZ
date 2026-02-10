@@ -23,18 +23,22 @@ public class Tiempo {
         System.out.print("Introduce segundo cualquira: ");
         tiempo.setSegundos(sc.nextInt());
 
-        System.out.println("Introduce un número que será la cantidad en segundos");
+        System.out.print("Introduce un número que será la cantidad en segundos: ");
         int n = sc.nextInt();
 
         System.out.println("Hora introducida");
-        System.out.printf("%02d:%02d:%02d %n", tiempo.getHora(), tiempo.getMinutos(), tiempo.getSegundos());
+        tiempo.mostrar();
 
         System.out.println("Hora con " + n + " segundos más");
         for (int i = 0; i < n; i++) {
             tiempo.sumarUnSegundo();
-            System.out.printf("%02d:%02d:%02d %n", tiempo.getHora(), tiempo.getMinutos(), tiempo.getSegundos());
+            tiempo.mostrar();
         }
 
+    }
+
+    public void mostrar() {
+            System.out.printf("%02d:%02d:%02d %n", getHora(), getMinutos(), getSegundos());
     }
 
     public void sumarUnSegundo() {
@@ -61,28 +65,23 @@ public class Tiempo {
         while (!(hora >= 0 && hora <= 23)) {
             System.out.print("Hora no válida. Vuelva a introducir: ");
             hora = sc.nextInt();
-
-            if (hora >= 0 && hora <= 23) {
-                this.hora = hora;
-            }
         }
+
+        this.hora = hora;
     }
 
     public int getMinutos() {
         return minutos;
     }
 
-    public void setMinutos(int minuto) {
+    public void setMinutos(int minutos) {
 
-        while (!(minuto >= 0 && minuto <= 59)) {
+        while (!(minutos >= 0 && minutos <= 59)) {
             System.out.print("Hora no válida. Vuelva a introducir: ");
-            minuto = sc.nextInt();
-
-            if (minuto >= 0 && minuto <= 59) {
-                this.minutos = minuto;
-            }
+            minutos = sc.nextInt();
         }
 
+        this.minutos = minutos;
     }
 
     public int getSegundos() {
@@ -94,11 +93,10 @@ public class Tiempo {
         while (!(segundos >= 0 && segundos <= 59)) {
             System.out.print("Hora no válida. Vuelva a introducir: ");
             segundos = sc.nextInt();
-
-            if (segundos >= 0 && segundos <= 59) {
-                this.segundos = segundos;
-            }
         }
+
+        this.segundos = segundos;
+
     }
 
 }

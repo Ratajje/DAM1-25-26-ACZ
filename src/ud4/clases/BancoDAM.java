@@ -3,13 +3,12 @@ package ud4.clases;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import devNull.CuentaCorrienteMio;
 
 public class BancoDAM {
     static Scanner sc = new Scanner(System.in);
     
     public static void main(String[] args) {
-        CuentaCorrienteMio cuentas[] = new CuentaCorrienteMio[0];
+        CuentaCorriente cuentas[] = new CuentaCorriente[0];
 
         int opcion = getOpcion();
 
@@ -21,7 +20,7 @@ public class BancoDAM {
                     System.out.print("DNI del titular: ");
                     String dni = sc.nextLine();
                     cuentas = Arrays.copyOf(cuentas, cuentas.length + 1);
-                    cuentas[cuentas.length - 1] = new CuentaCorrienteMio(dni, titular);
+                    cuentas[cuentas.length - 1] = new CuentaCorriente(dni, titular);
                 break;
                 case 2: break;
                 case 3: break;
