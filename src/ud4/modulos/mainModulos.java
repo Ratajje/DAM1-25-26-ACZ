@@ -1,6 +1,6 @@
 package ud4.modulos;
 
-public class ModulosFaltas {
+public class mainModulos {
     public static void main(String[] args) {
 
         Modulo cargarDatos = new Modulo();

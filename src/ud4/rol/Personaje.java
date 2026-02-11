@@ -2,10 +2,6 @@ package ud4.rol;
 
 import java.util.Random;
 
-import org.junit.platform.console.shadow.picocli.CommandLine.IFactory;
-
-import ud2.repaso.repaso;
-
 public class Personaje {
     private String nombre;
     private String raza;
@@ -109,12 +105,11 @@ public class Personaje {
 
     public int getFuerza() {
         return fuerza;
-
     }
 
     public void setFuerza(int fuerza) {
         if (fuerza < 1)
-            throw new IllegalArgumentException("La FUERZA debe se mayor que 0");
+            throw new IllegalArgumentException("La FUERZA debe ser mayor o igual que 1");
         else
             this.fuerza = fuerza;
     }
@@ -125,7 +120,7 @@ public class Personaje {
 
     public void setAgilidad(int agilidad) {
         if (agilidad < 1)
-            throw new IllegalArgumentException("La AGILIDAD debe se mayor que 0");
+            throw new IllegalArgumentException("La AGILIDAD debe ser mayor o igual que 1");
         else
             this.agilidad = agilidad;
     }
@@ -136,7 +131,7 @@ public class Personaje {
 
     public void setConstitucion(int constitucion) {
         if (constitucion < 1)
-            throw new IllegalArgumentException("La CONSTITUCION debe se mayor que 0");
+            throw new IllegalArgumentException("La CONSTITUCION debe ser mayor o igual que 1");
         else
             this.constitucion = constitucion;
     }
@@ -147,7 +142,7 @@ public class Personaje {
 
     public void setNivel(int nivel) {
         if (nivel < 1)
-            throw new IllegalArgumentException("El NIVEL debe se mayor que 0");
+            throw new IllegalArgumentException("El NIVEL debe ser mayor o igual que 1");
         else
             this.nivel = nivel;
     }
@@ -158,7 +153,7 @@ public class Personaje {
 
     public void setExperiencia(int experiencia) {
         if (experiencia < 0)
-            throw new IllegalArgumentException("La EXPERIENCIA debe se mayor que 0");
+            throw new IllegalArgumentException("La EXPERIENCIA debe se mayor o igual que 0");
         else
             this.experiencia = experiencia;
     }
