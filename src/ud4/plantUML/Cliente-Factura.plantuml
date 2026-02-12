@@ -1,0 +1,25 @@
+@startuml Cliente-FacturaZona-Alamcen
+class Cliente {}
+class Factura {}
+Cliente "1" -- "*" Factura
+
+class Zona {}
+class Almacen {}
+Almacen "1" --> "*" Zona
+
+class Empleado {
+    - String nombre
+    - String puesto
+}
+Empleado "0..1 supervisor" -- "0..* supervisado" Empleado: supervisa
+
+class Equipo {}
+class Jugador {}
+
+Jugador  "*" o-- "0..1" Equipo
+
+class Biblioteca {}
+class Libro {}
+
+Libro "*" o-- "1" Biblioteca
+@enduml

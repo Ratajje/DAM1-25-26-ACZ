@@ -14,6 +14,8 @@ public class Personaje {
     private int experiencia;
     private int ptosDeVida;
 
+    final static int VIDA_MINIMA = 50;
+
     public static void main(String[] args) {
         Personaje personaje = new Personaje("Guldan", Raza.ENANO, 1, 1, 1, 1, 1);
 
@@ -39,25 +41,26 @@ public class Personaje {
     }
 
     public Personaje(String nombre, Raza raza) {
-        this(nombre, raza, generarRandom(), generarRandom(), generarRandom(), 1, 0);
+        this(nombre, raza, generarRandom(1, 100), generarRandom(1, 100), generarRandom(1, 100));
     }
 
     public Personaje(String nombre) {
         this(nombre, Raza.HUMANO);
     }
 
-    private static int generarRandom() {
+    /* ======= UTILIDADES ======= */
+    private static int generarRandom(int inicio, int fin) {
         Random rnd = new Random();
-        int random = rnd.nextInt(1, 101);
+        int random = rnd.nextInt(inicio, fin + 1);
         return random;
     }
 
     /*
-     * ============================== METODOS
+     * ============================== METODOS DE INSTANCIA
      * ====================================================
      */
     public void mostrar() {
-        System.out.println("============ TU PERSONAJE ===========");
+        System.out.println("\n============ TU PERSONAJE ===========");
         System.out.println("|Nombre: " + this.nombre);
         System.out.println("|Raza : " + this.raza);
         System.out.println("------ CARACTERÍSTICAS FÍSICAS ------");
@@ -67,12 +70,71 @@ public class Personaje {
         System.out.println("---------- ESTADO DEL P.J -----------");
         System.out.println("|Nivel: " + this.nivel);
         System.out.println("|Experiencia: " + this.experiencia);
-        System.out.println("|Estado actual de " + toString());
-        System.out.println("=====================================");
+        System.out.println("|PV actual de " + this);
+        System.out.println("=====================================\n");
     }
 
     public String toString() {
-        return this.nombre + " (" + this.ptosDeVida + "/" + 150 + ")";
+        return nombre + " (" + ptosDeVida + "/" + (getPvIniciales()) + ")";
+    }
+
+    private int getPvIniciales() {
+        return constitucion + VIDA_MINIMA;
+    }
+
+    int sumarExperiencia(int puntos) {
+        int expAnterior = experiencia / 1000;
+        experiencia += puntos;
+
+        return experiencia / 1000 - expAnterior;
+
+        // @TODO Debemos subir de nivel aquí?
+    }
+
+    void subirNivel() {
+        nivel++;
+
+        fuerza = (int) (fuerza * 1.05);
+        agilidad = (int) (agilidad * 1.05);
+        constitucion = (int) (constitucion * 1.05);
+
+        // @TODO Deberia el personaje recuperar algo o toda la vida
+    }
+
+    void curar() {
+        if (ptosDeVida < getPvIniciales())
+            ptosDeVida = getPvIniciales();
+    }
+
+    boolean perderVida(int puntos) {
+        ptosDeVida -= puntos;
+
+        return !estarVivo();
+    }
+
+    boolean estarVivo() {
+        return ptosDeVida > 0;
+    }
+
+    /*=== COMBATE ===*/
+    int atacar(Personaje enemigo) {
+        int ataque = this.fuerza + generarRandom(1,100);
+
+        int defensa = enemigo.agilidad + generarRandom(1, 100);
+
+        int damage = ataque - defensa;
+
+        if (damage > enemigo.ptosDeVida) {
+            damage = enemigo.ptosDeVida;
+        }
+
+        if (damage > 0) {
+            this.sumarExperiencia(damage);
+            enemigo.sumarExperiencia(damage);
+            enemigo.perderVida(damage);
+        }
+
+        return damage;
     }
 
     /* ==== GETTER Y SETTER ==== */
@@ -129,7 +191,7 @@ public class Personaje {
 
         this.constitucion = constitucion;
 
-        this.ptosDeVida = 50 + this.constitucion;
+        this.ptosDeVida = getPvIniciales();
     }
 
     public int getNivel() {
