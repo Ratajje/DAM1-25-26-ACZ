@@ -3,7 +3,7 @@ package ud4.clases;
 import java.util.Scanner;
 
 public class Bombilla {
-    private boolean estaEncendido;
+    private boolean interruptor;
 
     private static boolean interruptorGeneral;
 
@@ -12,54 +12,46 @@ public class Bombilla {
 
         Bombilla b1 = new Bombilla();
 
-        b1.encender();
-        System.out.println("Bombilla encendida?: " + b1.getEstado());
-        System.out.println("Interruptor General Encendido?: " + b1.getEstadoGeneral());        
+        b1.apagar();
+        Bombilla.interruptorGeneralEncender();
+
+        System.out.println("Interruptor NORMAL encendido?: " + b1.estaEncendidoInterruptor());
+
+        System.out.println("Interruptor GENERAL encendido?: " + Bombilla.estaEncendidoInterruptorgeneral());
+
+        System.out.println("Bombilla encendida?: " + b1.bombillaEncendida());
     }
 
-
-    public boolean getEstado() {
-        return this.estaEncendido;
-    }
-    
-    public void encender() {
-        this.estaEncendido = true;
+    public static boolean estaEncendidoInterruptorgeneral() {
+        return interruptorGeneral;
     }
 
-    public void apagar() {
-        this.estaEncendido = false;
-    }
-
-    public void interruptorGeneralEncendido() {
+    public static void interruptorGeneralEncender() {
         interruptorGeneral = true;
     }
 
-    public void interruptorGeneralApagado() {
+    public static void interruptorGeneralApagar() {
         interruptorGeneral = false;
     }
 
-    public boolean getEstadoGeneral() {
-        return interruptorGeneral;
+    public boolean estaEncendidoInterruptor() {
+        return this.interruptor;
+    }
+
+    public void encender() {
+        this.interruptor = true;
+    }
+
+    public void apagar() {
+        this.interruptor = false;
+    }
+
+    public boolean bombillaEncendida() {
+        return this.interruptor && interruptorGeneral;
     }
 
 
 
 
-    // GETTERS Y SETTERS
-    public boolean isEstaEncendido() {
-        return estaEncendido;
-    }
-
-    public void setEstaEncendido(boolean estaEncendido) {
-        this.estaEncendido = estaEncendido;
-    }
-
-    public boolean isInterruptorGeneral() {
-        return interruptorGeneral;
-    }
-
-    public void setInterruptorGeneral(boolean interruptorGeneral) {
-        this.interruptorGeneral = interruptorGeneral;
-    }
 
 }

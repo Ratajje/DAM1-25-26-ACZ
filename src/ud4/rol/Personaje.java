@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Personaje {
     private String nombre;
-    private String raza;
+    private Raza raza;
 
     private int fuerza;
     private int agilidad;
@@ -15,13 +15,16 @@ public class Personaje {
     private int ptosDeVida;
 
     public static void main(String[] args) {
-        Personaje personaje = new Personaje("Guldan", "enano", 1, 1, 1, 1, 1);
+        Personaje personaje = new Personaje("Guldan", Raza.ENANO, 1, 1, 1, 1, 1);
 
         System.out.println(personaje.getRaza());
     }
 
-    /*============================== CONTRUSCTORES ====================================================*/
-    public Personaje(String nombre, String raza, int fuerza, int agilidad, int constitucion, int nivel, int experiencia) {
+    /*
+     * ============================== CONTRUSCTORES
+     * ====================================================
+     */
+    public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion, int nivel, int experiencia) {
         setNombre(nombre);
         setRaza(raza);
         setFuerza(fuerza);
@@ -29,19 +32,18 @@ public class Personaje {
         setConstitucion(constitucion);
         setNivel(nivel);
         setExperiencia(experiencia);
-        this.ptosDeVida = 50 + this.constitucion;
     }
 
-    public Personaje(String nombre, String raza, int fuerza, int agilidad, int constitucion) {
+    public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion) {
         this(nombre, raza, fuerza, agilidad, constitucion, 1, 0);
     }
 
-    public Personaje(String nombre, String raza) {
+    public Personaje(String nombre, Raza raza) {
         this(nombre, raza, generarRandom(), generarRandom(), generarRandom(), 1, 0);
     }
 
     public Personaje(String nombre) {
-        this(nombre, "HUMANO");
+        this(nombre, Raza.HUMANO);
     }
 
     private static int generarRandom() {
@@ -50,11 +52,14 @@ public class Personaje {
         return random;
     }
 
-    /*============================== METODOS ====================================================*/
+    /*
+     * ============================== METODOS
+     * ====================================================
+     */
     public void mostrar() {
         System.out.println("============ TU PERSONAJE ===========");
         System.out.println("|Nombre: " + this.nombre);
-        System.out.println("|Raza : " + raza);
+        System.out.println("|Raza : " + this.raza);
         System.out.println("------ CARACTERÍSTICAS FÍSICAS ------");
         System.out.println("|Fuerza: " + this.fuerza);
         System.out.println("|Agilidad: " + this.agilidad);
@@ -70,9 +75,7 @@ public class Personaje {
         return this.nombre + " (" + this.ptosDeVida + "/" + 150 + ")";
     }
 
-
-
-    /*==== GETTER Y SETTER ====*/
+    /* ==== GETTER Y SETTER ==== */
     public String getNombre() {
         return nombre;
     }
@@ -81,26 +84,12 @@ public class Personaje {
         this.nombre = nombre;
     }
 
-    public String getRaza() {
+    public Raza getRaza() {
         return raza;
     }
 
-    public void setRaza(String raza) {
-        String arrRaza[] = { "HUMANO", "ELFO", "ENANO", "HOBBIT", "ORCO", "TROLL" };
-
-        boolean esRazaValida = false;
-
-        for (int i = 0; i < arrRaza.length && !esRazaValida; i++) {
-            if (arrRaza[i].equalsIgnoreCase(raza)) {
-                esRazaValida = true;
-            }
-        }
-
-        if (!esRazaValida) {
-            throw new IllegalArgumentException("Tipo de raza invalida");
-        }
-
-        this.raza = raza.toUpperCase();
+    public void setRaza(Raza raza) {
+        this.raza = raza;
     }
 
     public int getFuerza() {
@@ -130,10 +119,17 @@ public class Personaje {
     }
 
     public void setConstitucion(int constitucion) {
-        if (constitucion < 1)
+        if (constitucion < 1) {
             throw new IllegalArgumentException("La CONSTITUCION debe ser mayor o igual que 1");
-        else
-            this.constitucion = constitucion;
+        }
+
+        if (constitucion > 100) {
+            throw new IllegalArgumentException("La CONSTITUCION no puede ser mayor de 100 (Max vida: 150)");
+        }
+
+        this.constitucion = constitucion;
+
+        this.ptosDeVida = 50 + this.constitucion;
     }
 
     public int getNivel() {
