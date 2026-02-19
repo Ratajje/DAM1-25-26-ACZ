@@ -10,9 +10,10 @@ public class Modulo {
     private String nombre;
     private int horas;
     private int periodoSemanales;
+    Alumno[] alumnos; // Alumnado matriculado
 
     // FUNCIONES
-    public Modulo[] cargarCSV(String filePath) {
+    public static Modulo[] cargarCSV(String filePath) {
 
         String modulosCSV[] = Util.readFileToStringArray(filePath);
 
@@ -31,6 +32,46 @@ public class Modulo {
         return modulos;
     }
 
+    public String mostrar() {
+        String str = "";
+        str += nombre + "\n";
+        str += "Alumnado matriculado: ";
+        if (!hayAlumnado()) {
+            str += "No hay alumnos matriculados";
+        } else {
+            str += Arrays.toString(alumnos);
+        }
+
+        return str;
+    }
+
+    public boolean hayAlumnado() {
+        return alumnos != null && alumnos.length > 0;
+    }
+
+    public void matricula(Alumno a) {
+        // TODO Comprueba que el alumno no está ya matriculado
+        // El metodo devuelve true si se ha podido matricular y false en caso contrario
+        if (alumnos == null) {
+            alumnos = new Alumno[1];
+        } else {
+            alumnos = Arrays.copyOf(alumnos, alumnos.length + 1);
+        }
+        alumnos[alumnos.length - 1] = a;
+
+        // TODO Añadir el modulo al array de modulo del objeto Alumno
+        if (a.modulos == null) {
+            a.modulos = new Modulo[1];
+        } else {
+            a.modulos = Arrays.copyOf(a.modulos, a.modulos.length + 1);
+        }
+        a.modulos[a.modulos.length - 1] = this;
+
+        
+    }
+
+
+
     public int getSesionesTotales() {
         return (this.horas * 60) / 50;
     }
@@ -43,7 +84,7 @@ public class Modulo {
         return (int) (getSesionesTotales() * 0.10);
     }
 
-    public void mostrar() {
+    public void mostrar1() {
         System.out.println("Curso: " + this.curso);
         System.out.println("Codigo: " + this.codigo);
         System.out.println("Nombre: " + this.nombre);

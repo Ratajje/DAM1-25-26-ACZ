@@ -4,7 +4,7 @@ public class AlumnosLeerMostrarArray {
     public static void main(String[] args) {
         int NUM_ALUMNOS = 1;
 
-        Alumno[] alumnos = new Alumno[NUM_ALUMNOS];
+        AlumnoV01[] alumnos = new AlumnoV01[NUM_ALUMNOS];
 
         for (int i = 0; i < alumnos.length; i++) {
             alumnos[i] = AlumnoLeerMostrar.leerDatosAlumno();            
@@ -12,7 +12,7 @@ public class AlumnosLeerMostrarArray {
 
         System.out.println("\n\nLISTADO DE ALUMNOS");
         System.out.println("==================\n");
-        for (Alumno alumno : alumnos) {
+        for (AlumnoV01 alumno : alumnos) {
             AlumnoLeerMostrar.mostrarAlumno(alumno);
             System.out.println();
         }

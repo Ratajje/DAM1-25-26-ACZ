@@ -13,13 +13,83 @@ class Empleado {
 }
 Empleado "0..1 supervisor" -- "0..* supervisado" Empleado: supervisa
 
+
+
+
 class Equipo {}
 class Jugador {}
 
 Jugador  "*" o-- "0..1" Equipo
 
+
 class Biblioteca {}
 class Libro {}
 
 Libro "*" o-- "1" Biblioteca
+
+
+
+class Casa {}
+class Habitacion {}
+Casa "1" *-- "1.." Habitacion 
+
+
+
+class Pedido {}
+class LiñaPedido {}
+Pedido "1" *-- "1.." LiñaPedido
+
+
+
+class Exame {}
+class Pregunta {}
+Exame "1" *-- "1.." Pregunta
+
+
+
+
+
+
+class CentroEducativo {}
+class Profesor {}
+
+Profesor "1" o-- "1.." CentroEducativo
+
+
+
+class Alumno1 {}
+class ExpedienteAcadémico {}
+
+Alumno1 "1" *-- "1" ExpedienteAcadémicp
+
+
+
+
+class Universidade {}
+class Facultade {}
+
+Universidad "1" --* "1.." Facultades
+
+
+
+class Alumno2 {}
+class Modulo {}
+
+Alumno2 "0.." --o "0.." Modulo
+
+
+
+class CicloFormativo {}
+class ModuloCiclo {}
+
+CicloFormativo "1" *-- "*" ModuloCiclo
+
+
+
+
+class Alumno3 {}
+class ModuloFalta {}
+
+Alumno3 "0.." --* "0.." ModuloFalta
+
 @enduml

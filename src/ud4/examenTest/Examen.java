@@ -55,7 +55,7 @@ public class Examen {
             // Ponemos el número de pregunta (i+1)
             texto += "Pregunta " + (i + 1) + ":\n";
             // Llamamos al toString() de la clase Pregunta (reutilización de código)
-            texto += preguntas[i].toString() + "\n"; 
+            
         }
 
         return texto;

@@ -1,17 +1,27 @@
-package ud4.alumnado;
+package ud4.modulos;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+
+import org.junit.platform.console.shadow.picocli.CommandLine.IFactory;
 
 public class Alumno {
     String nombre;
     String apellido1;
     String apellido2;
     LocalDate fechaNacimiento;
-    double notaProgramacion;
-    double notaContornos;
     static String centroEducativo = "IES Chan do Monte";
+    Modulo[] modulos; // Módulos en los que está matriculado
 
+    // Constructores
+    public Alumno(String nombre, String apellido1, String apellido2) {
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+    }
+
+    // Metodos
     public static void setCentroEducativo(String nuevoCentro) {
         if (nuevoCentro != null && !nuevoCentro.isEmpty())
             centroEducativo = nuevoCentro;
@@ -21,21 +31,46 @@ public class Alumno {
         return centroEducativo;
     }
 
-    public void mostrar() {
+    public void mostrar1() {
         System.out.println("Ficha de Alumno/a");
         System.out.println("=================");
         System.out.println("Nombre: " + this.nombre);
         System.out.println("Apellido1: " + apellido1);
         System.out.println("Apellido2: " + apellido2);
         System.out.println("Nombre de usuari@: " + getUsername());
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        System.out.println("Fecha de Nacimiento: " + fechaNacimiento.format(formato));
-        System.out.println("Nota Programación: " + notaProgramacion);
-        System.out.println("Nota Contornos: " + notaContornos);
-        System.out.println("Nota media: " + ((notaProgramacion + notaContornos) / 2));
-        //System.out.println("NOMBRE COMPLETO: " + getNombreCompleto());
-        //System.out.println("INICIALES EN MAYUSUCLA: " + getIniciales());
-        System.out.println("INICIALES EN MAYUSUCLA 2: " + getIniciales2());
+        if (fechaNacimiento != null) {
+            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            System.out.println("Fecha de Nacimiento: " + fechaNacimiento.format(formato));
+        }
+
+        // Nuevo
+        if (modulos == null) {
+            System.out.println("No está matriculado en ningún módulo");
+        } else {
+            System.out.println("Modulos en que está matriculado: " + Arrays.toString(modulos));
+        }
+    }
+
+    public String mostrar() {
+        String str = "Ficha de Alumno/a" + "\n";
+        str += "=================" + "\n";
+        str += "Nombre: " + this.nombre + "\n";
+        str += "Apellido1: " + apellido1 + "\n";
+        str += "Apellido2: " + apellido2 + "\n";
+        str += "Nombre de usuari@: " + getUsername() + "\n";
+        if (fechaNacimiento != null) {
+            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            str += "Fecha de Nacimiento: " + fechaNacimiento.format(formato) + "\n";
+        }
+
+        // Nuevo
+        if (modulos == null) {
+            str += "No está matriculado en ningún módulo" + "\n";
+        } else {
+            str += "Modulos en que está matriculado: " + Arrays.toString(modulos) + "\n";
+        }
+
+        return str;
     }
 
     public String getUsername() {

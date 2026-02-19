@@ -5,8 +5,6 @@ class Alumno {
     String apellido1
     String apellido2
     LocalDate fechaNacimiento
-    double notaProgramacion
-    double notaContornos
     {static} String centroEducativo
 
     mostrar()
@@ -16,4 +14,18 @@ class Alumno {
     {static} setcentroEducativo()
 }
 
+class Modulo {
+    byte curso
+    String codigo
+    String nombre
+    short horas
+    byte periodosSemanais
+
+    String mostrar()
+    boolean hayAlumado()
+    double getSesiones()
+}
+
+
+Alumno "0..*" -- "0..*" Modulo : matriculado
 @enduml

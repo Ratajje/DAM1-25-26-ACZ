@@ -1,27 +1,26 @@
 package ud4.examenTest;
 
-import ud2.repaso.repaso;
 
 public class Pregunta {
     private String enunciado;
     private String respuestas[];
     private int indiceResCorr;
 
-    Pregunta(String enunciado, String respuestas[], int indiceResCorr) {
-        this.setEnunciado(enunciado);
+    Pregunta (String enunciado, String respuestas[], int indiceResCorr) {
+        setEnunciado(enunciado);
         setRespuestas(respuestas);
         setIndiceResCorr(indiceResCorr);
     }
 
     @Override
     public String toString() {
-        String resultado = enunciado + "\n";
+        String resultado = "\n" +enunciado + "\n\n";
 
         for (int i = 0; i < respuestas.length; i++) {
 
-            char letra = (char) ('a' + 1);
+            char letra = (char) ('a' + i);
 
-            enunciado += letra + ") " + respuestas[i] + "\n";
+            enunciado += "\n" + letra + ") " + respuestas[i] + "\n";
         }
 
         return resultado;
@@ -83,7 +82,7 @@ public class Pregunta {
 
     public void setIndiceResCorr(int indiceResCorr) {
         if (this.respuestas == null) {
-            throw new IllegalStateException("Primero debes establecer las respuestas.");
+            throw new IllegalStateException("PRIMERO DEBES ESTABLECER LAS RESPUESTAS");
         }
 
         if (indiceResCorr < 0 || indiceResCorr > this.respuestas.length - 1) {

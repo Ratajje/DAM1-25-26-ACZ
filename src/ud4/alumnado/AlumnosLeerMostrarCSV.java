@@ -10,11 +10,11 @@ public class AlumnosLeerMostrarCSV {
 
         String[] alumnosCSV = Util.readFileToStringArray("alumnos.csv");
 
-        Alumno[] alumnos = new Alumno[alumnosCSV.length];
+        AlumnoV01[] alumnos = new AlumnoV01[alumnosCSV.length];
 
         for (int i = 0; i < alumnosCSV.length; i++) {
             String[] atributos = alumnosCSV[i].split(",");
-            alumnos[i] = new Alumno();
+            alumnos[i] = new AlumnoV01();
             alumnos[i].nombre = atributos[0];
             alumnos[i].apellido1 = atributos[1];
             alumnos[i].apellido2 = atributos[2];
@@ -24,11 +24,11 @@ public class AlumnosLeerMostrarCSV {
         }
 
 
-        Alumno.setCentroEducativo("");
+        AlumnoV01.setCentroEducativo("");
 
-        System.out.println("\n\nLISTADO DE ALUMNOS del " + Alumno.centroEducativo);
+        System.out.println("\n\nLISTADO DE ALUMNOS del " + AlumnoV01.centroEducativo);
         System.out.println("==================================\n");
-        for (Alumno alumno : alumnos) {
+        for (AlumnoV01 alumno : alumnos) {
             //AlumnoLeerMostrar.mostrarAlumno(alumno);
             //alumno.mostrar();
             alumno.getIniciales();
