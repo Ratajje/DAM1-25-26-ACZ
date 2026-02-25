@@ -91,5 +91,4 @@ class Alumno3 {}
 class ModuloFalta {}
 
 Alumno3 "0.." --* "0.." ModuloFalta
-
 @enduml
