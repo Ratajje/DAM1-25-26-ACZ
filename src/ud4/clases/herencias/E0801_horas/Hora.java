@@ -1,14 +1,13 @@
-package ud4.clases.E0801_horas;
+package ud4.clases.herencias.E0801_horas;
 
-import ud2.repaso.repaso;
 
 public class Hora {
     protected int hora;
     protected int minuto;
 
     public Hora(int hora, int minuto) {
-        this.hora = hora;
-        this.minuto = minuto;
+        setHora(hora);
+        setMinutos(minuto);
     }
 
     public void inc() {
@@ -23,27 +22,27 @@ public class Hora {
     }
 
     public boolean setMinutos(int valor) {
-        if (valor >= 60 && valor < 0) {
+        if (valor >= 60 || valor < 0) {
             return false;
         } else {
+            this.minuto = valor;
             return true;
         }
     }
 
     public boolean setHora(int valor) {
-        if (valor >= 24 && valor < 0) {
+        if (valor >= 24 || valor < 0) {
             return false;
         } else {
+            this.hora = valor;
             return true;
         }
     }
 
     @Override
     public String toString() {
-        String formatoHora = "HORA: ";
-    
-        
-
+        return String.format("%02d:%02d", this.hora, this.minuto);
     }
+
 
 }
