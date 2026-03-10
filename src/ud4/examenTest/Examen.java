@@ -1,6 +1,5 @@
 package ud4.examenTest;
 
-import java.util.Scanner;
 
 public class Examen {
     private String titulo;

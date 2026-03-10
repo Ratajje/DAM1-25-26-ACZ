@@ -2,7 +2,7 @@ package ud4.rol;
 
 import java.util.Random;
 
-public class Personaje {
+public class Personaje1 {
     private String nombre;
     private Raza raza;
 
@@ -17,7 +17,7 @@ public class Personaje {
     final static int VIDA_MINIMA = 50;
 
     public static void main(String[] args) {
-        Personaje personaje = new Personaje("Guldan", Raza.ENANO, 1, 1, 1, 1, 1);
+        Personaje1 personaje = new Personaje1("Guldan", Raza.ENANO, 1, 1, 1, 1, 1);
 
         System.out.println(personaje.getRaza());
     }
@@ -26,7 +26,7 @@ public class Personaje {
      * ============================== CONTRUSCTORES
      * ====================================================
      */
-    public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion, int nivel, int experiencia) {
+    public Personaje1(String nombre, Raza raza, int fuerza, int agilidad, int constitucion, int nivel, int experiencia) {
         setNombre(nombre);
         setRaza(raza);
         setFuerza(fuerza);
@@ -36,15 +36,15 @@ public class Personaje {
         setExperiencia(experiencia);
     }
 
-    public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion) {
+    public Personaje1(String nombre, Raza raza, int fuerza, int agilidad, int constitucion) {
         this(nombre, raza, fuerza, agilidad, constitucion, 1, 0);
     }
 
-    public Personaje(String nombre, Raza raza) {
+    public Personaje1(String nombre, Raza raza) {
         this(nombre, raza, generarRandom(1, 100), generarRandom(1, 100), generarRandom(1, 100));
     }
 
-    public Personaje(String nombre) {
+    public Personaje1(String nombre) {
         this(nombre, Raza.HUMANO);
     }
 
@@ -117,7 +117,7 @@ public class Personaje {
     }
 
     /*=== COMBATE ===*/
-    int atacar(Personaje enemigo) {
+    int atacar(Personaje1 enemigo) {
         int ataque = this.fuerza + generarRandom(1,100);
 
         int defensa = enemigo.agilidad + generarRandom(1, 100);
