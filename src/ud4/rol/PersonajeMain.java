@@ -4,9 +4,9 @@ import java.rmi.server.SocketSecurityException;
 
 public class PersonajeMain {
     public static void main(String[] args) {
-        Personaje1 p1 = new Personaje1("Guldan", Raza.ORCO);
+        Personaje p1 = new Personaje("Guldan", Raza.ORCO);
 
-        Personaje1 p2 = new Personaje1("Arthas", Raza.HUMANO);
+        Personaje p2 = new Personaje("Arthas", Raza.HUMANO);
 
         p1.mostrar();
         p2.mostrar();

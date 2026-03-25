@@ -2,7 +2,7 @@ package ud4.rol;
 
 import java.util.Random;
 
-public class Personaje1 {
+public class Personaje implements Comparable<Personaje> {
     private String nombre;
     private Raza raza;
 
@@ -17,7 +17,7 @@ public class Personaje1 {
     final static int VIDA_MINIMA = 50;
 
     public static void main(String[] args) {
-        Personaje1 personaje = new Personaje1("Guldan", Raza.ENANO, 1, 1, 1, 1, 1);
+        Personaje personaje = new Personaje("Guldan", Raza.ENANO, 1, 1, 1, 1, 1);
 
         System.out.println(personaje.getRaza());
     }
@@ -26,7 +26,7 @@ public class Personaje1 {
      * ============================== CONTRUSCTORES
      * ====================================================
      */
-    public Personaje1(String nombre, Raza raza, int fuerza, int agilidad, int constitucion, int nivel, int experiencia) {
+    public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion, int nivel, int experiencia) {
         setNombre(nombre);
         setRaza(raza);
         setFuerza(fuerza);
@@ -36,15 +36,15 @@ public class Personaje1 {
         setExperiencia(experiencia);
     }
 
-    public Personaje1(String nombre, Raza raza, int fuerza, int agilidad, int constitucion) {
+    public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion) {
         this(nombre, raza, fuerza, agilidad, constitucion, 1, 0);
     }
 
-    public Personaje1(String nombre, Raza raza) {
+    public Personaje(String nombre, Raza raza) {
         this(nombre, raza, generarRandom(1, 100), generarRandom(1, 100), generarRandom(1, 100));
     }
 
-    public Personaje1(String nombre) {
+    public Personaje(String nombre) {
         this(nombre, Raza.HUMANO);
     }
 
@@ -117,7 +117,7 @@ public class Personaje1 {
     }
 
     /*=== COMBATE ===*/
-    int atacar(Personaje1 enemigo) {
+    int atacar(Personaje enemigo) {
         int ataque = this.fuerza + generarRandom(1,100);
 
         int defensa = enemigo.agilidad + generarRandom(1, 100);
@@ -215,5 +215,12 @@ public class Personaje1 {
         else
             this.experiencia = experiencia;
     }
+
+    @Override
+    public int compareTo(Personaje o) {
+        return nombre.compareTo(nombre);
+    }
+
+
 
 }

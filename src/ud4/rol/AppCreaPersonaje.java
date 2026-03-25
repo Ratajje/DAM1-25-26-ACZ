@@ -10,7 +10,7 @@ public class AppCreaPersonaje {
 
     public static void main(String[] args) {
 
-        Personaje1 personajes[] = new Personaje1[0];
+        Personaje personajes[] = new Personaje[0];
 
         int opcion;
         boolean hayPersonajesCreados = false;
@@ -45,7 +45,7 @@ public class AppCreaPersonaje {
                 int experiencia = sc.nextInt();
 
                 personajes = Arrays.copyOf(personajes, personajes.length + 1);
-                personajes[personajes.length - 1] = new Personaje1(nombre, raza, fuerza, agilidad, constitucion, nivel,
+                personajes[personajes.length - 1] = new Personaje(nombre, raza, fuerza, agilidad, constitucion, nivel,
                         experiencia);
 
                 hayPersonajesCreados = true;

@@ -1,0 +1,44 @@
+Persona (
+    Implementacion inexacta de getEdad()
+    Mala declaracion del atributo dni    
+)
+
+Jugador (
+    Buena implementacion del Comparador
+    Buen uso del enumerado 
+    Buen uso del super
+    Bien el toString()
+    Bien el sort
+
+    Implemente el metodo setDorsal pero no lo he usado en el constructor
+    No he validado la posicion a null 
+)
+
+Arbitro (
+    Bien de constructores
+
+    Mala implementacion getNumeroColegiado()
+)
+
+Equipo (
+    Atributos bien aplicados con sus restricciones
+    Bien implementado el toString() Me ha faltado el "-"
+    
+
+    Metodo add no está bien del todo, la comprobacion del tamaño
+    mal colocada
+
+    En el metodo equals() no los he ordenado para hacer la comparcion
+)
+
+Partido (
+    Bien de Atributos
+    Bien setDetalles 
+    Bien setResultado
+
+
+    constructor No he validado en el constructor si eran nulos
+    No he añadido los atributos puntosLocal/puntosVisitante
+    Como lo tego, esta bien o mal?
+    toString incompleto
+)
