@@ -3,3 +3,5 @@
 bin/
 lib/
 *.plantuml
+*.csv
+*.tsv
