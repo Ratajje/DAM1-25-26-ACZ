@@ -11,7 +11,6 @@ public class E1211_AppSocio {
 
         System.out.println(listaSocios);
 
-        String[] arr = {"uno", "dos", "tres"};
 
     }
 }

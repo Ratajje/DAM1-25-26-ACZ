@@ -20,16 +20,16 @@ public class E1210_RepetidosNoRepetidos2 {
             numEnteros.add(random);
         }
 
-        System.out.println("Lista: " + numEnteros);
+        System.out.println("Lista con repetidos: " + numEnteros);
 
         Set<Integer> sinRepetidos = new LinkedHashSet<>();
         sinRepetidos.addAll(numEnteros);
 
-        System.out.println("No repetidos: " + sinRepetidos);
+        System.out.println("Elementos unicos: " + sinRepetidos);
 
         Set<Integer> repetidos = new LinkedHashSet<>();
         Set<Integer> aux = new LinkedHashSet<>();
-
+    
         for (int i = 0; i < numEnteros.size(); i++) {
             if (!aux.add(numEnteros.get(i))) {
                 repetidos.add(numEnteros.get(i));
@@ -43,7 +43,7 @@ public class E1210_RepetidosNoRepetidos2 {
         soloUnaVez.addAll(sinRepetidos);
         soloUnaVez.removeAll(repetidos);
 
-        System.out.println("Solo una vez: " + soloUnaVez);
+        System.out.println("No repetidos en la lista: " + soloUnaVez);
 
         
     }
