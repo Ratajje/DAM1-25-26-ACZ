@@ -2,6 +2,7 @@ package ud5.Ejercicios;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -22,31 +23,44 @@ public class EP1226 {
 
     public static List<List<String>> repartoAlumnos(List<String> lista, int numGrupos) {
 
-        Random rnd = new Random();
+        Collections.shuffle(lista);
 
-        List<List<String>> grupos = new ArrayList<>(numGrupos);
+        List<List<String>> repartoAlumnos = new ArrayList<>();
 
-        for (int i = 0; i < grupos.size(); i++) {
-            int mitad = lista.size() / 2;
-
-            List<String> aux = new ArrayList<>();
-            for (int k = 0; i < aux.size() / 2; i++) {
-                aux.add(lista.get(k));
-            }
-
-            grupos.add(aux);
-
+        while (repartoAlumnos.size() != numGrupos) {
+            repartoAlumnos.add(new ArrayList<>());
         }
 
-        return null;
+
+        int indexReparto = 0;
+
+        for (int i = 0; i < lista.size(); i++) {
+            
+            repartoAlumnos.get(indexReparto).add(lista.get(i));
+
+            indexReparto++;
+
+            if (indexReparto == numGrupos) {
+                indexReparto = 0;
+            }
+
+        }
+        
+        
+        return repartoAlumnos;
     }
 
     public static void main(String[] args) {
+
         String[] lineas = Util.readFileToStringArray("DATOS - Alumnado DAM1.txt");
 
         List<String> alumnos = Arrays.asList(lineas);
 
-        List<List<String>> listas = repartoAlumnos(alumnos, 2);
+        List<List<String>> listas = repartoAlumnos(alumnos, 5);
+
+        for (List<String> l : listas) {
+            System.out.println(l);
+        }
 
     }
 }

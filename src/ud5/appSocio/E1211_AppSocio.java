@@ -11,6 +11,5 @@ public class E1211_AppSocio {
 
         System.out.println(listaSocios);
 
-
     }
 }
