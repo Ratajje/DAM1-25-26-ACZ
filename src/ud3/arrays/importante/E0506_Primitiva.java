@@ -6,24 +6,31 @@ import java.util.Random;
 public class E0506_Primitiva {
     public static void main(String[] args) {
         int apuesta[] = tablaAleatoria();
-        int ganadora[] = {1, 2, 3, 4, 5, 6};
+        int ganadora[] = {1, 2, 3, 4, 5, 6, 10, 30, 23};
+        int ganadora2[] = {1, 2, 5, 4, 5, 6, 10, 30, 23};
+
 
         Arrays.sort(ganadora);
-        System.out.println(Arrays.toString(ganadora));
-
         System.out.println(Arrays.toString(apuesta));
 
-        System.out.println("Numero de aciertos: " + numAciertos(apuesta, ganadora));
+        System.out.println(Arrays.toString(ganadora));
+
+
+        System.out.println("Numero de aciertos: " + numAciertos(ganadora2, ganadora));
     }
 
     static int numAciertos(int[] apuesta, int[] ganadora) {
         int aciertos = 0;
 
-        for (int i = 0; i < apuesta.length; i++) {
 
-            for (int j = 0; j < ganadora.length; j++) {
+        for (int i = 0; i < apuesta.length; i++) {
+            boolean hayAcierto = false;
+
+
+            for (int j = 0; j < ganadora.length && !hayAcierto; j++) {
                 if (apuesta[i] == ganadora[j]) {
                     aciertos++;
+                    hayAcierto = true;
                 }
             }
             

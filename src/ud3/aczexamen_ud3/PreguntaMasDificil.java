@@ -43,6 +43,7 @@ public class PreguntaMasDificil {
         Arrays.sort(medias);
 
         double preguntaMasDificil = medias[0];
+        System.out.printf("Media: %.2f", medias[0]);
 
         return preguntaMasDificil;
     }

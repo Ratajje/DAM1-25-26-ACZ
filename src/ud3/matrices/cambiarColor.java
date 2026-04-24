@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 
 public class cambiarColor {
@@ -16,6 +18,8 @@ public class cambiarColor {
         };
 
         System.out.println(cambiarColor(img, 0, 5));
+
+        System.out.println(Arrays.deepToString(img));
 
     }
 

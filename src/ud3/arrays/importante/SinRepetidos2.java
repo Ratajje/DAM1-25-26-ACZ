@@ -19,13 +19,13 @@ public class SinRepetidos2 {
         // 2. Recorremos el array original
         for (int i = 0; i < t.length; i++) {
             
-            int numeroAInsertar = t[i];
+            //int numeroAInsertar = t[i];
             boolean estaRepetido = false;
 
             // 3. BUSCAR: Recorremos tAuxiliar para ver si el número ya existe
             // Fíjate que el bucle 'j' recorre tAuxiliar, NO 't'
             for (int j = 0; j < tAuxiliar.length; j++) {
-                if (tAuxiliar[j] == numeroAInsertar) {
+                if (tAuxiliar[j] == t[i]) {
                     estaRepetido = true;
                     break; // Ya lo encontramos, no hace falta seguir buscando
                 }
@@ -37,7 +37,7 @@ public class SinRepetidos2 {
                 tAuxiliar = Arrays.copyOf(tAuxiliar, tAuxiliar.length + 1);
                 
                 // Guardamos el número en la ÚLTIMA posición (length - 1)
-                tAuxiliar[tAuxiliar.length - 1] = numeroAInsertar;
+                tAuxiliar[tAuxiliar.length - 1] = t[i];
             }
         }
 

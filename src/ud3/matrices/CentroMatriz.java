@@ -12,7 +12,7 @@ public class CentroMatriz {
 
         };
 
-        System.out.println(centroMatriz(matriz));
+        System.out.println(centroMatriz2(matriz));
      }
 
     public static int centroMatriz(int[][] matriz) {
