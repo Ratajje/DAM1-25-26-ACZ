@@ -4,16 +4,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
+import java.util.Map.Entry;
 
-public class Meiga {
+import ud5.ejerciciosRepasoExamen.invertirElOrden;
+
+import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Meiga implements Comparable<Meiga> {
     // Atributos
     private String nome;
     private String alcume;
     private List<Feitizo> feitizos;
     private Map<String, Integer> inventario;
+
+    public List<Feitizo> getFeitizos() {
+        return feitizos;
+    }
 
     // Constructores
     public Meiga(String nome, String alcume, Collection<Feitizo> feitizos, Map<String, Integer> inventario) {
@@ -50,6 +62,24 @@ public class Meiga {
 
         return meigas;
 
+    }
+
+    @Override
+    public String toString() {
+        String str = nome + " (" + alcume + ") \n";
+        Comparator<Feitizo> feitizoDificultad = (f1, f2) -> Integer.compare(f2.getDificultade(), f1.getDificultade());
+        Comparator<Feitizo> feitizoAlfabetico = (f1, f2) -> f1.getNome().compareTo(f2.getNome());
+
+        List<Feitizo> feitizosCopia = new ArrayList<>(feitizos);
+        feitizosCopia.sort(feitizoDificultad.thenComparing(feitizoAlfabetico));
+
+        str += "Feitizos: " + feitizos + "\n";
+
+        Set<String> clavesMapa = new TreeSet<>(inventario.keySet());
+
+        str += "Inventario: " + clavesMapa + "\n";
+
+        return str;
     }
 
     static Collection<Feitizo> getFeitizosRnd(Collection<Feitizo> feitizos) {
@@ -96,11 +126,52 @@ public class Meiga {
         // Lanzar feitizos de exemplo
         System.out.println(meigasExemplo[0].alcume + " lanzando feitizos de exemplo:");
         meigasExemplo[0].lanzarFeitizos();
+
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getAlcume() {
+        return alcume;
     }
 
     public int lanzarFeitizos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'lanzarFeitizos'");
+
+        this.feitizos.sort((f1, f2) -> f2.getDificultade() - f1.getDificultade());
+
+        int sumaFeitizos = 0;
+
+        for (Feitizo f : feitizos) {
+
+            Set<String> inventarioSet = inventario.keySet();
+
+            List<String> ingredientes = f.getIngredientes();
+
+            if (inventarioSet.containsAll(ingredientes)) {
+                System.out.println("-> Lanzando o feitizo: " + f.getNome());
+                sumaFeitizos += f.getDificultade();
+
+                for (String i : ingredientes) {
+                    if (inventario.get(i) == 1) {
+                        inventario.remove(i);
+                    } else {
+                        inventario.put(i, inventario.get(i) - 1);
+                    }
+                }
+            } else {
+                System.out.println("-X Non ten ingredientes suficientes para lanzar o feitizo: " + f.getNome());
+            }
+
+        }
+
+        return sumaFeitizos;
+    }
+
+    @Override
+    public int compareTo(Meiga m) {
+        return this.alcume.compareTo(m.alcume);
     }
 
 }

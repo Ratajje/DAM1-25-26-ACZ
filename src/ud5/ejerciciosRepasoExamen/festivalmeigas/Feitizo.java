@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Feitizo {
+public class Feitizo implements Comparable<Feitizo> {
     // Atributos
     private String nome;
     List<String> ingredientes;
@@ -17,6 +17,11 @@ public class Feitizo {
         this.nome = nome;
         this.ingredientes = List.of(ingredientes);
         this.dificultade = dificultade;
+    }
+
+    @Override
+    public String toString() {
+        return nome + "(" + dificultade + ")";
     }
 
     // Otros métodos
@@ -85,6 +90,11 @@ public class Feitizo {
         for (Feitizo feitizo : feitizos) {
             System.out.println(feitizo);
         }
+    }
+
+    @Override
+    public int compareTo(Feitizo f) {
+        return this.nome.compareTo(f.nome);
     }
 
 }
