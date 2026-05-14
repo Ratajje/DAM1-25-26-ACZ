@@ -1,0 +1,38 @@
+Lista Cremallera
+	No devuelvo una nueva lista de los elementos pasados como parametro, sino que paso una lista vacia
+	El contains no añade si el elemento esta repetido
+    • A favor: Usas correctamente la firma del método genérico <T> y devuelves una nueva lista. añado los elementos sobrantes al final. 
+    • Penalización por Nulos: El PDF exige explícitamente "El método deberá controlar que las listas puedan estar vacías o ser null". 
+	Tu código lanza un NullPointerException en el segundo if si la primera lista es nula devuelve un eror. 
+
+    • Penalización por Lógica: Al usar !listaRes.contains() para añadir los sobrantes, estás alterando el comportamiento pedido. Si la lista original tenía nombres repetidos (ej. dos "Juan"), tu código borra los repetidos. El intercalado manual con el aux es defectuoso si las listas son de distinto tamaño. 
+
+
+
+Máximo Según Condición
+	Mal, He ordenado por años
+    • A favor: La firma del método es perfecta. Aplicas muy bien el Predicate para filtrar y el Comparator para buscar el mayor. Lanzas exactamente la IllegalArgumentException cuando toca, tal como pide el enunciado. 
+    • Penalización por Eficiencia: Para buscar un máximo no se debe ordenar toda la lista con .sort() (es muy ineficiente a nivel de rendimiento). Se debe usar un simple recorrido guardando el mayor, o Collections.max(). 
+    • Penalización por el Main: lista de fechas vacía
+
+
+2.1. Playas concello
+	No he validado los nulos
+    • A favor: Implementación técnica impecable. Sabes que para eliminar elementos de una lista que se está recorriendo hay que usar un Iterator y su método .remove(). 
+    • Penalización por Nulos : Si playas es null, o si el getConcello() de alguna playa es null, el método explota al intentar hacer .equals(). 
+
+Playas ordenadas
+	No he validado los nulos
+    • A favor : Creas una copia de la lista (no modificas la original) y dominas el encadenamiento de comparadores con .thenComparing(). Está casi perfecto. 
+
+
+
+Playas por provincia
+	No he validado los nulos
+    • A favor: Usas LinkedHashMap, lo cual demuestra que leíste que había que mantener el orden de inserción original. 
+    • mal: Al hacer mapa.put(p.provincia, new ArrayList<>()); en cada iteración, estás reseteando/borrando todas las playas que habías guardado antes de esa provincia. Al final, el mapa solo devuelve la última playa insertada. Faltó usar putIfAbsent. 
+
+
+Playas Favoritas
+    • A favor: Creaste la firma del método correctamente. 
+    • Penalización: Ejercicio no realizado. Devuelve null. 
